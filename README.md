@@ -20,3 +20,11 @@ and answers had html entities. Ex. NOT DECODED: Where would you find the &quot;S
 
 ## What I learned
 - I strengthened my fundamental React knowledge with this project.
+
+## Strech Goals To Make This Quiz App Unique
+As of 5/13/22 the app works perfectly as a simple quiz app however I still have some plans on making it better!
+- #1 plan is to add True/False questions. The current implementation only has multiple choice answers.
+- On the homepage I want to add a section where the user can select a category and a difficulty.
+- I want to add a dark mode style for the quiz
+- A celebration, such as confetti or fireworks popping, if you got all the answers right.
+- I want to connect one more API to truly make this a unique quiz experience. An idea that popped up was connecting an image API like Unsplash or Pexels and adding images associated with the question.
