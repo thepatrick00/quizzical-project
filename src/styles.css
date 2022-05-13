@@ -19,6 +19,19 @@ body, html, #root, .app {
     font-size: 16px;
     cursor: pointer;
 }
+.app__text--ctr {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 5em;
+}
+.app__text {
+    margin: 0;
+    font-family: Karla;
+}
+.app__text--link {
+    color: #4D5b9e;
+}
 
 .home {
     display: flex;

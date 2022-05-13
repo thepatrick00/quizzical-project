@@ -7,7 +7,7 @@ I used all my knowledge of HTML, CSS, JavaScript, and React to create this quiz 
 ## Features of the quiz app
 - Home page/quiz page
 - Quiz has questions and any question with answers, any answer you press on is saved as your answer.
-- When you finish the quiz, you get a score and you see which questions you answered correctly, and if you answered incorrectly you see the correct answer is displayed.
+- When you finish the quiz, you get a score and you see which questions you answered correctly, and if you answered incorrectly the correct answer is displayed. Also the "check answers" button switches to the "play again" button, so you can start a new quiz.
 
 ## How I Created The App
 - I used useEffect() hook, to put API data into state and deal with side effects

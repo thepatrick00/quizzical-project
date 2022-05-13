@@ -20,6 +20,9 @@ export default function App() {
             :
             <Quiz />
             }
+            <div className='app__text--ctr'>
+                <p className='app__text' >Made with 💗 by <a className='app__text--link' href='https://github.com/thepatrick00/quizzical-project'>Patrick</a></p>
+            </div>
         </div>        
     )
 }
