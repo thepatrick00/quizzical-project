@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# What is Quizzical
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the final solo project of the *Scrimba Frontend Career Path* Course.
 
-## Available Scripts
+I used all my knowledge of HTML, CSS, JavaScript, and React to create this quiz app.
 
-In the project directory, you can run:
+## Features of the quiz app
+- Home page/quiz page
+- Quiz has questions and any question with answers, any answer you press on is saved as your answer.
+- When you finish the quiz, you get a score and you see which questions you answered correctly, and if you answered incorrectly you see the correct answer is displayed.
 
-### `npm start`
+## How I Created The App
+- I used useEffect() hook, to put API data into state and deal with side effects
+- I used useState() hook, to updating state objects with nested arrays of objects  
+- I used conditional rendering to conditionally display the homepage/quiz page and also for buttons
+- I used *Nanoid* dependency to have a unique id to keep track of all questions and answers.
+- I used *He* dependency to decode html entities into readable text. This was necessary because the API data for the questions
+and answers had html entities. Ex. NOT DECODED: Where would you find the &quot;Spanish Steps&quot;? DECODED: Where would you find the "Spanish Steps"
+- I created a pixel perfect design from the mock up I received in a Figma file. I also made sure the design was responsive for any screen size.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What I learned
+- I strengthened my fundamental React knowledge with this project.

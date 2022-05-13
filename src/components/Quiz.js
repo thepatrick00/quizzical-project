@@ -10,6 +10,8 @@ export default function Quiz() {
     const [showAnswers, setShowAnswers] = useState(false);
     const [resetQuiz, setResetQuiz] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+
+    
     
     /* Create initial data in my desired format */
     useEffect(() => {
@@ -40,6 +42,8 @@ export default function Quiz() {
             .catch(error => console.log(error))
             .finally(() => setIsLoading(false))
     }, [resetQuiz])
+
+    console.log(quizData)
     
     console.log(quizData[0])
     /* Update State on Answer Click Section */
