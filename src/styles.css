@@ -1,0 +1,134 @@
+body, html, #root, .app {
+    margin: 0;
+    background-color: #F5F7FB;
+    height: 100%;
+ }
+ 
+ h3 {
+     margin: 0;
+ }
+ 
+ .btn {
+    color: white;
+    background-color: #4D5B9E;
+    padding: 1em 3.5em;
+    border: none;
+    border-radius: 16px; 
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F5F7FB;
+}
+
+.home__title {
+    font-family: Karla;
+    margin: 0;
+    color: #293264;
+    font-weight: 700px;
+    font-size: 31px;
+}
+.home__text {
+    font-family: Inter;
+    margin: 10px 0 30px;
+    font-weight: 400;
+    color: #293264;
+    font-size: 16px;
+}
+ 
+.quiz {
+    background-color: #F5F7FB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.quiz__loading--text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
+.quiz__loading--box {
+    display: flex;
+    place-items: center;
+}
+
+.quiz__footer {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.quiz__btn {
+    padding: 1em 1.5em;
+}
+.quiz__finalText {
+    font-size: 1.2rem;
+    color: #293264;
+    font-family: Inter;
+    font-weight: 700;
+    margin-right: 2rem;
+}
+
+.question {
+    width: min(90%, 600px);
+    border-bottom: 1px solid #DBDEF0;
+    padding: 16px;
+    position: relative;
+    z-index: 1;
+}
+.question__question {
+    font-family: Karla;
+    color: #293264;
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.question__btnctr {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.question__btn {
+    border: 1px solid #293264;
+    border-radius: 10px;
+    padding: .25em .75em;
+    margin-bottom: .75em;
+    margin-right: 1em;
+    background: hsla(99, 100%, 50%, 0);
+    font-family: Inter;
+    font-weight: 500px;
+    color: #293264;
+}
+.question__btn:focus,
+.question__btn:hover {
+    border: none;
+    background-color: #D6DBF5;
+    padding: calc(.25em + 1px) calc(.75em + 1px);
+    outline: none;
+}
+
+.blueBlob {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.yellowBlob {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
