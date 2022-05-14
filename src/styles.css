@@ -57,12 +57,13 @@ body, html, #root, .app {
 }
  
 .quiz {
-    background-color: #F5F7FB;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
+    padding-bottom: 1rem;
     min-height: 100%;
+    z-index: 1;
 }
 
 .quiz__loading--text {
@@ -87,6 +88,7 @@ body, html, #root, .app {
 }
 .quiz__btn {
     padding: 1em 1.5em;
+    
 }
 .quiz__finalText {
     font-size: 1.2rem;
@@ -101,7 +103,6 @@ body, html, #root, .app {
     border-bottom: 1px solid #DBDEF0;
     padding: 16px;
     position: relative;
-    z-index: 1;
 }
 .question__question {
     font-family: Karla;
