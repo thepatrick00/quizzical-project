@@ -3,10 +3,10 @@ import { nanoid } from 'nanoid'
 import he from 'he'
 
 export default function Quesiton(props) {
-    
-    const answerElements = props.allAnswers.map((answer, index) => {
+
+    const answerButtonsElem = props.allAnswers.map((answer, index) => {
         //answer properties => value, id, isHeld, isCorrect
-        
+
         let styles = {
             backgroundColor: answer.isHeld ? '#D6DBF5'  : 'revert-layer'
         }
@@ -23,8 +23,7 @@ export default function Quesiton(props) {
                 styles = { opacity: "50%" }
             }
         }
-        
-        
+
         return (
             <button key = {nanoid()} 
                 onClick={(event) => props.updateHeld(props.qID, answer.id)}
@@ -42,7 +41,7 @@ export default function Quesiton(props) {
                 {he.decode(props.question)}
             </h3>
             <div className='question__btnctr'>
-                {answerElements}
+                {answerButtonsElem}
             </div>
         </div>
     )

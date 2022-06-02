@@ -23,9 +23,12 @@ and answers had html entities. Ex. NOT DECODED: Where would you find the &quot;S
 
 ## Strech Goals To Make This Quiz App Unique
 As of 5/13/22 the app works perfectly as a simple quiz app however I still have some plans on making it better!
-- #1 plan is to add True/False questions. The current implementation only has multiple choice answers.
+- #1 plan is to add True/False questions. The current implementation only has multiple choice answers.✅ 6/2/22 
 - On the homepage I want to add a section where the user can select a category and a difficulty.
 - I want to add a dark mode style for the quiz
 - A celebration, such as confetti or fireworks popping, if you got all the answers right.
 - I want to connect one more API to truly make this a unique quiz experience. An idea that popped up was connecting an image API like Unsplash or Pexels and adding images associated with the question.
 - I want to add the ability to tab through and select each answer with space. When the answer is seclected it will automatically go to the next section of questions.
+
+## Strech Goal Updates
+- 6/2/22 - 2 Weeks later I came back to my code, read it, and implement true and false answers to the quiz. I had to make sure true was always the first button you could choose.

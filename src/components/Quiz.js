@@ -11,11 +11,9 @@ export default function Quiz() {
     const [resetQuiz, setResetQuiz] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
-    
-    
     /* Create initial data in my desired format */
     useEffect(() => {
-        fetch('https://opentdb.com/api.php?amount=5&type=multiple&category=22')
+        fetch('https://opentdb.com/api.php?amount=5&category=22')
             .then(res => res.json())
             .then(data => {
                 setQuizData(() => {
@@ -27,12 +25,17 @@ export default function Quiz() {
                         
                         const correct = {value: question.correct_answer, id: nanoid(), isHeld: false, isCorrect: true};
                         
-                        const allAnswersArr = [...incorrect];
+                        let allAnswersArr = [...incorrect];
                         const randomNum = Math.floor(Math.random() * 4);
                         allAnswersArr.splice(randomNum, 0, correct);
-                        
-                        if(question.incorrect_answers){
-                            delete question.incorrect_answers;
+
+                        /* T/F AnswersArr logic */
+                        if(question.type === 'boolean') {
+                            if(correct.value === "True") {
+                                allAnswersArr = [correct, incorrect[0]]
+                            } else {
+                                allAnswersArr = [incorrect[0], correct]
+                            }    
                         }
                         
                         return {...question, allAnswers: allAnswersArr, id: nanoid()};
@@ -43,12 +46,9 @@ export default function Quiz() {
             .finally(() => setIsLoading(false))
     }, [resetQuiz])
 
-    console.log(quizData)
-    
-    console.log(quizData[0])
     /* Update State on Answer Click Section */
-    //qId is qID = {question.id} passed in as a prop to Question component, each time I loop over with .map()
-    //aID is created in the Question component. It is an individual answer.id
+    // qID = {question.id} passed in as a prop to Question component, each time I loop over with .map()
+    // aID is created in the Question component. It is an individual answer.id
     function updateHeld(qID, aID) {
         
         setQuizData(prevData => {
@@ -100,12 +100,13 @@ export default function Quiz() {
                 questionIndex = {index}
                 qID = {question.id}
                 showAnswers = {showAnswers}
+                type = {question.type}
             />
         )
     })
 
-    const buttonElements = () => {
-        return (
+    const buttonElements = {
+        render: (
                 !showAnswers 
                 ? 
                 <div className='quiz__footer'>
@@ -130,8 +131,8 @@ export default function Quiz() {
             </div>
             :
             <div className='quiz'>
-                {questionElements}
-                {buttonElements()}
+                {questionElements} 
+                {buttonElements.render}
             </div>
             }
             <img className='yellowBlob' src={yellowBlob} alt='' />
