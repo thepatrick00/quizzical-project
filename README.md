@@ -28,3 +28,4 @@ As of 5/13/22 the app works perfectly as a simple quiz app however I still have 
 - I want to add a dark mode style for the quiz
 - A celebration, such as confetti or fireworks popping, if you got all the answers right.
 - I want to connect one more API to truly make this a unique quiz experience. An idea that popped up was connecting an image API like Unsplash or Pexels and adding images associated with the question.
+- I want to add the ability to tab through and select each answer with space. When the answer is seclected it will automatically go to the next section of questions.
