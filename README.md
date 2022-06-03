@@ -33,4 +33,4 @@ As of 5/13/22 the app works perfectly as a simple quiz app however I still have 
 
 ## Strech Goal Updates
 - 6/2/22 - 2 Weeks later I came back to my code, read it, and implement true and false answers to the quiz. I had to make sure that "True" was always the first option to choose from.
-- 6/3/22 - I added inputs that let you choose the category, difficutly, question amount, and question type. I had to make sure to use controlled components so there is only one source of truth, in the React state.
+- 6/3/22 - I had to make sure to use controlled components so there is only one source of truth, in the React state. I also had to lift my formData state up to the App.js, so both Home.js & Quiz.js could use that data.

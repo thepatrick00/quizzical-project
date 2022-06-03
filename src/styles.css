@@ -4,9 +4,35 @@ body, html, #root, .app {
     min-height: 100%;
  }
  
- h3 {
+h3 {
      margin: 0;
- }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    }
+
+* {
+    margin: 0;
+}
+form {
+    margin: 30px 0 25px;
+}
+label {
+    display: block;
+    font-family: Inter;
+}
+
+input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Inter;
+}
  
  .btn {
     color: white;
@@ -50,7 +76,7 @@ body, html, #root, .app {
 }
 .home__text {
     font-family: Inter;
-    margin: 10px 0 30px;
+    margin-top: 10px;
     font-weight: 400;
     color: #293264;
     font-size: 16px;

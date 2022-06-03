@@ -8,7 +8,7 @@ export default function Home(props) {
     return (
         <div className="home">
             <h1 className='home__title'>Quizzical</h1>
-            <p className='home__text'>The greatest trivia game</p>
+            <p className='home__text'>Test your knowledge, and win!</p>
 
             <form>
                 <label htmlFor='amountOfQuestions'>Amount of Questions</label>
