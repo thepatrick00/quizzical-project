@@ -46,7 +46,7 @@ export default function Quiz(props) {
             })
             .catch(error => console.log(error))
             .finally(() => setIsLoading(false))
-    }, [resetQuiz])
+    }, [resetQuiz, amountOfQuestions, answerType, category, difficulty])
 
     /* Update State on Answer Click Section */
     // qID = {question.id} passed in as a prop to Question component, each time I loop over with .map()
