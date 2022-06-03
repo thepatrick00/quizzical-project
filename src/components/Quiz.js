@@ -5,15 +5,16 @@ import blueBlob from '../images/blueBlob.png'
 import yellowBlob from '../images/yellowBlob.png'
 
 
-export default function Quiz() {
+export default function Quiz(props) {
     const [quizData, setQuizData] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
     const [resetQuiz, setResetQuiz] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const {amountOfQuestions, answerType, category, difficulty} = props.formData
 
     /* Create initial data in my desired format */
     useEffect(() => {
-        fetch('https://opentdb.com/api.php?amount=5&category=22')
+        fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${category}&difficulty=${difficulty}&type=${answerType}`)
             .then(res => res.json())
             .then(data => {
                 setQuizData(() => {
@@ -38,7 +39,7 @@ export default function Quiz() {
                             }    
                         }
                         
-                        return {...question, allAnswers: allAnswersArr, id: nanoid()};
+                        return {...question, allAnswers: allAnswersArr, id: nanoid()}; 
                     })
                 })
             })
