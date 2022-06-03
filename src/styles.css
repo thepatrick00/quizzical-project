@@ -89,6 +89,9 @@ input[type=number], select {
     padding-bottom: 1.3rem;
     font-size: 1.3rem;
 }
+.homeIcon {
+    z-index: 1;
+}
 .homeIcon:hover {
     transform: scale(1.2);
     color: var(--blue-accent);
@@ -149,6 +152,7 @@ input[type=number], select {
     width: min(90%, 600px);
     border-bottom: 1px solid #DBDEF0;
     padding: 16px;
+    z-index: 1;
 }
 .question__question {
     font-family: Karla;
