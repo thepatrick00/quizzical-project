@@ -79,16 +79,20 @@ input[type=number], select {
     color: var(--blue);
     font-size: 16px;
 }
- 
-.homeIcon {
-    position: absolute;
-    top: 4%;
-    right: 10%;
-    z-index: 1;
+.quiz__header {
+    display: flex;
+    width: min(95%, 620px);
+    justify-content: space-between;
+    align-items: center;
+    font-family: Karla;
+    color: var(--blue);
+    padding-bottom: 1.3rem;
+    font-size: 1.3rem;
 }
 .homeIcon:hover {
     transform: scale(1.2);
     color: var(--blue-accent);
+    cursor: pointer;
 }
 
 .quiz {
@@ -128,7 +132,10 @@ input[type=number], select {
 }
 .quiz__btn {
     padding: 1em 1.5em;
-    
+}
+.btn:hover,
+.btn:focus {
+    background-color: hsla(230, 34%, 46%, 0.90);
 }
 .quiz__finalText {
     font-size: 1.2rem;

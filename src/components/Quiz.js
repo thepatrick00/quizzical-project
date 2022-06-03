@@ -133,13 +133,17 @@ export default function Quiz(props) {
             </div>
             :
             <>
+            <div className='quiz__header'>
+                <h2>Quizzical</h2>
                 <HomeIcon className='homeIcon' onClick={props.startQuiz}
-                    size={50}
+                    size={40}
                 />
-                <div className='quiz__answers'>
-                    {questionElements} 
-                    {buttonElements.render}
-                </div>
+            </div>
+            
+            <div className='quiz__answers'>
+                {questionElements} 
+                {buttonElements.render}
+            </div>
             </>
             }
             <img className='yellowBlob' src={yellowBlob} alt='' />
