@@ -5,9 +5,12 @@
 }
 
 body, html, #root, .app {
-    margin: 0;
-    background-color: var(--bg-color);
+    margin: 0; 
     min-height: 100%;
+ }
+
+ body {
+    background-color: var(--bg-color);
  }
 
  html, body {
@@ -62,7 +65,7 @@ input[type=number], select {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: var(--bg-color);
+    
 }
 
 .home__title {
@@ -189,10 +192,12 @@ input[type=number], select {
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: -1;
 }
 
 .yellowBlob {
     position: fixed;
     right: 0;
     top: 0;
+    z-index: -1;
 }
