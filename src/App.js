@@ -8,7 +8,7 @@ export default function App() {
     const [isHome, setIsHome] = React.useState(true);
     
     function startQuiz() {
-        setIsHome(false)
+        setIsHome(prev => !prev)
     }
 
     //passed this state up from the home.js so both Home.js & Quiz.js can use the state
@@ -37,7 +37,7 @@ export default function App() {
             <Home startQuiz={startQuiz} formData={formData} 
             handleFormChange={handleFormChange}/>
             :
-            <Quiz formData = {formData}/>
+            <Quiz formData={formData} startQuiz={startQuiz}/>
             }
         </div>        
     )

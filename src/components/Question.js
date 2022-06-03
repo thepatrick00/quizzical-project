@@ -36,7 +36,7 @@ export default function Quesiton(props) {
     })
     
     return (
-        <div className='question'>
+        <div className='question__component'>
             <h3 className='question__question'>
                 {he.decode(props.question)}
             </h3>

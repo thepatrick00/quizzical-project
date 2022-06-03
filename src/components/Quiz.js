@@ -3,6 +3,7 @@ import Question from './Question'
 import { nanoid } from 'nanoid'
 import blueBlob from '../images/blueBlob.png'
 import yellowBlob from '../images/yellowBlob.png'
+import { Home as HomeIcon } from 'react-feather'
 
 
 export default function Quiz(props) {
@@ -131,10 +132,15 @@ export default function Quiz(props) {
                 <h3 className='quiz__loading--text'>One moment please...</h3>
             </div>
             :
-            <div className='quiz'>
-                {questionElements} 
-                {buttonElements.render}
-            </div>
+            <>
+                <HomeIcon className='homeIcon' onClick={props.startQuiz}
+                    size={50}
+                />
+                <div className='quiz__answers'>
+                    {questionElements} 
+                    {buttonElements.render}
+                </div>
+            </>
             }
             <img className='yellowBlob' src={yellowBlob} alt='' />
             <img className='blueBlob' src={blueBlob} alt='' />
