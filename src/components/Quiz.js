@@ -3,7 +3,8 @@ import Question from './Question'
 import { nanoid } from 'nanoid'
 import blueBlob from '../images/blueBlob.png'
 import yellowBlob from '../images/yellowBlob.png'
-import { Home as HomeIcon } from 'react-feather'
+import { Home as HomeIcon, Sun as SunIcon, Moon as MoonIcon,
+     Volume2 as SoundIcon } from 'react-feather'
 
 
 export default function Quiz(props) {
@@ -103,6 +104,7 @@ export default function Quiz(props) {
                 qID = {question.id}
                 showAnswers = {showAnswers}
                 type = {question.type}
+                theme = {props.theme}
             />
         )
     })
@@ -121,6 +123,25 @@ export default function Quiz(props) {
             </div>   
         )
     }
+
+    const iconElements = {
+        render: (
+            <>
+            <HomeIcon className='homeIcon' onClick={props.startQuiz}
+                size={30}
+            />
+
+            {props.theme === 'light'
+            ?
+            <SunIcon className='sunIcon' size={30} onClick={props.switchTheme}/>
+            :
+            <MoonIcon className='sunIcon' size={30} onClick={props.switchTheme}/>
+            }
+
+            <SoundIcon className='soundIcon' size={30}/>
+            </>
+        )
+    }
     
     return (
         <div className='quiz'>
@@ -135,9 +156,9 @@ export default function Quiz(props) {
             <>
             <div className='quiz__header'>
                 <h2>Quizzical</h2>
-                <HomeIcon className='homeIcon' onClick={props.startQuiz}
-                    size={40}
-                />
+                <div>
+                    {iconElements.render}
+                </div>
             </div>
             
             <div className='quiz__answers'>

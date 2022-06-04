@@ -1,16 +1,11 @@
 :root {
-    --bg-color: #F5F7FB;
+    --bg-light: #F5F7FB;
+    --bg-dark: rgb(54, 238, 79);
     --blue-accent: #4D5B9E;
     --blue: #293264;
 }
-
-body, html, #root, .app {
-    margin: 0; 
-    min-height: 100%;
- }
-
  body {
-    background-color: var(--bg-color);
+    background-color: var(--bg-light);
  }
 
  html, body {
@@ -92,10 +87,16 @@ input[type=number], select {
     padding-bottom: 1.3rem;
     font-size: 1.3rem;
 }
-.homeIcon {
-    z-index: 1;
+.homeIcon,
+.sunIcon,
+.moonIcon,
+.soundIcon {
+    margin-right: .5em;
 }
-.homeIcon:hover {
+.homeIcon:hover,
+.sunIcon:hover,
+.moonIcon:hover,
+.soundIcon:hover {
     transform: scale(1.2);
     color: var(--blue-accent);
     cursor: pointer;
@@ -110,6 +111,7 @@ input[type=number], select {
     min-height: 100%;
     z-index: 1;
 }
+
 .quiz__answers {
     display: flex;
     align-items: center;

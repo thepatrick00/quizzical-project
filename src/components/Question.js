@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid'
 import he from 'he'
 
 export default function Quesiton(props) {
-
     const answerButtonsElem = props.allAnswers.map((answer, index) => {
         //answer properties => value, id, isHeld, isCorrect
 
@@ -33,7 +32,8 @@ export default function Quesiton(props) {
                 {he.decode(props.allAnswers[index].value)}
             </button>
         )
-    })
+    });
+
     
     return (
         <div className='question__component'>
