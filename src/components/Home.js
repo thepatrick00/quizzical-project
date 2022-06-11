@@ -5,6 +5,7 @@ import { THEME } from '../constant.js'
 import SettingsIcons from './SettingsIcons.js'
 
 export default function Home(props) {
+    // const {switchTheme, theme, isHome} = props
     const {handleFormChange, formData} = props
 
     const customTheme = THEME[props.theme];
@@ -20,7 +21,7 @@ export default function Home(props) {
                 />
             </div>
             <h1 className='home__title'>Quizzical</h1>
-            <p className='home__text'>Test your knowledge, and win!</p>
+            <p className='home__text'>Play with friends. Test your brain!</p>
 
             <form>
                 <label htmlFor='amountOfQuestions'>Amount of Questions</label>
@@ -86,9 +87,9 @@ export default function Home(props) {
                 </select>   
             </form>
 
-            <button onClick={props.startQuiz}  className='btn start-btn'>Start Quiz</button>
+            <button onClick={props.startQuiz}  className='btn start-btn'>Play</button>
             <img className='yellowBlob' src={yellowBlob} alt='' />
-        <img className='blueBlob' src={blueBlob} alt='' />
+            <img className='blueBlob' src={blueBlob} alt='' />
         </div>
     )
 }

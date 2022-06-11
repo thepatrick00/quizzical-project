@@ -6,6 +6,7 @@ function SettingsIcons({startQuiz, theme, switchTheme, showHome=true}) {
     let showObj;
     showHome ? showObj = {display: 'inline'} : showObj = {display: 'none'};
 
+
     return (
         <div>
             <HomeIcon className='homeIcon' onClick={startQuiz}

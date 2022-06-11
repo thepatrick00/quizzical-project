@@ -1,21 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Quiz from './components/Quiz'
 import Home from './components/Home'
 import './styles.css'
 
 export default function App() {
     
+    const savedTheme = localStorage.getItem('theme');
+
     const [isHome, setIsHome] = React.useState(true);
-    const [theme, setTheme] = React.useState('light');
+    const [theme, setTheme] = React.useState(savedTheme || 'light');
     
     function startQuiz() {
         setIsHome(prev => !prev)
     }
 
-    function switchTheme() {
-        console.log('theme value=', theme)
+    const switchTheme = React.useCallback(() => {
         setTheme(prev => prev === 'light' ? 'dark' : 'light')
-    }
+    }, [] );
 
     //passed this state up from the home.js so both Home.js & Quiz.js can use the state
     const [formData, setFormData] = useState({
@@ -35,6 +36,16 @@ export default function App() {
         })
     }
 
+    useEffect(() => {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            switchTheme();
+        }
+    }, [switchTheme])
+
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+    }, [theme])
+
     return (
         <div className='app'>
             {
@@ -42,7 +53,7 @@ export default function App() {
             ?
             <Home startQuiz={startQuiz} formData={formData} 
                 handleFormChange={handleFormChange} theme={theme}
-                switchTheme={switchTheme}
+                switchTheme={switchTheme} isHome={isHome}
             />
             :
             <Quiz formData={formData} startQuiz={startQuiz} 

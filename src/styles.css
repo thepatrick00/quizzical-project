@@ -1,20 +1,37 @@
 :root {
     --bg-color: #F5F7FB;
     --color: #293264;
+    /* same color b/c dark mode do not remove */
     --focused-btn-color: #293264;
     --accent-color: #4D5B9E;
     --btn-hover-color: var(--color);
     --btn-hover-bg-color: #D6DBF5;
-    
-
     --isHeld-bg-color: #D6DBF5;
 
-    /* Answer Styles */
-    --held-correct-answer: ;
-    --held-incorrect-answer: ;
-    --correct-answer: ;
+    --blob-mix-blend-mode: normal;
 
+    --question-border-bottom: hsl(231 41% 90%);
+    --icon-hover-color: var(--accent-color);
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: hsl(220deg 26% 14%); 
+        --color: hsl(213deg 15% 97%);
+        /* --accent-color: var(--btn-hover-color); */
+        --btn-hover-color: hsl(175deg 100% 75%);
+        --btn-hover-bg-color: hsl(216deg 19% 28%);
+        --isHeld-color: #293264;
+
+        --blob-mix-blend-mode: overlay;
+
+        --question-border-bottom: hsl(231 41% 90% / .7);
+        --icon-hover-color: var(--btn-hover-color);
+    }
+
+    
+};
+
 
  html, body {
      height: 100%;
@@ -32,8 +49,11 @@ h3 {
     margin: 0;
 }
 form {
-    margin: 30px 0 25px;
-    color: var(--color)
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 34px 0 46px;
+    color: var(--color);
 }
 label {
     display: block;
@@ -43,10 +63,10 @@ label {
 input[type=number], select {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin-top: 12px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 16px;
     box-sizing: border-box;
     font-family: Inter;
 }
@@ -81,6 +101,7 @@ input[type=number], select {
     top: 32px;
     right: 32px;
     color: var(--color);
+    z-index: 1;
 }
 
 .home__title {
@@ -88,7 +109,7 @@ input[type=number], select {
     margin: 0;
     color: var(--color);
     font-weight: 700px;
-    font-size: 31px;
+    font-size: 5rem;
 }
 .home__text {
     font-family: Inter;
@@ -106,6 +127,7 @@ input[type=number], select {
     color: var(--color);
     padding-bottom: 1.3rem;
     font-size: 1.3rem;
+    z-index: 1;
 }
 .logo {
     cursor: pointer;
@@ -121,7 +143,7 @@ input[type=number], select {
 .moonIcon:hover,
 .soundIcon:hover {
     transform: scale(1.2);
-    color: var(--accent-color);
+    color: var(--icon-hover-color);
     cursor: pointer;
 }
 
@@ -184,7 +206,7 @@ btn.quiz__btn:focus {
 
 .question__component {
     width: min(90%, 600px);
-    border-bottom: 1px solid #DBDEF0;
+    border-bottom: 1px solid var(--question-border-bottom);
     padding: 16px;
     z-index: 1;
 }
@@ -223,12 +245,14 @@ btn.quiz__btn:focus {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
+    mix-blend-mode: var(--blob-mix-blend-mode);
 }
 
 .yellowBlob {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: -1;
+    z-index: 0;
+    mix-blend-mode: var(--blob-mix-blend-mode);
 }
