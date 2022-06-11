@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Quiz from './components/Quiz'
 import Home from './components/Home'
+import About from './components/About'
 import './styles.css'
 
 export default function App() {
@@ -49,16 +50,16 @@ export default function App() {
     return (
         <div className='app'>
             {
-            isHome 
-            ?
-            <Home startQuiz={startQuiz} formData={formData} 
+                isHome 
+                ?
+                <Home startQuiz={startQuiz} formData={formData} 
                 handleFormChange={handleFormChange} theme={theme}
                 switchTheme={switchTheme} isHome={isHome}
-            />
-            :
-            <Quiz formData={formData} startQuiz={startQuiz} 
+                />
+                :
+                <Quiz formData={formData} startQuiz={startQuiz} 
                 switchTheme={switchTheme} theme={theme}
-            />
+                />
             }
         </div>        
     )

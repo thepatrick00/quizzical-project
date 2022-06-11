@@ -6,7 +6,6 @@ import yellowBlob from '../images/yellowBlob.png'
 import {THEME} from '../constant.js'
 import SettingsIcons from './SettingsIcons.js'
 
-
 export default function Quiz(props) {
     const [quizData, setQuizData] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
@@ -139,7 +138,9 @@ export default function Quiz(props) {
             :
             <>
             <div className='quiz__header'>
-                <h2 className='logo' onClick={props.startQuiz}>Quizzical</h2>
+                <h2 className='logo' onClick={props.startQuiz}>
+                    Quizzical
+                </h2>
                 <div className='settingsIconsQuiz'>
                     <SettingsIcons 
                         startQuiz={props.startQuiz} 

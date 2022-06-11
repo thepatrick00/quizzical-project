@@ -282,3 +282,10 @@ btn.quiz__btn:focus {
         right: 16px;
     }
 }
+
+@media (max-width: 400px) {
+    .home__title {
+        font-size: 3.5rem;
+        padding-top: 1rem;
+    }   
+}

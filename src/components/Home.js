@@ -88,6 +88,7 @@ export default function Home(props) {
             </form>
 
             <button onClick={props.startQuiz}  className='btn start-btn'>Play</button>
+            {/* <button className='btn start-btn'>About</button> */}
             <img className='yellowBlob' src={yellowBlob} alt='' />
             <img className='blueBlob' src={blueBlob} alt='' />
         </div>
