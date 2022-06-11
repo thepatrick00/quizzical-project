@@ -1,12 +1,20 @@
 :root {
-    --bg-light: #F5F7FB;
-    --bg-dark: rgb(54, 238, 79);
-    --blue-accent: #4D5B9E;
-    --blue: #293264;
+    --bg-color: #F5F7FB;
+    --color: #293264;
+    --focused-btn-color: #293264;
+    --accent-color: #4D5B9E;
+    --btn-hover-color: var(--color);
+    --btn-hover-bg-color: #D6DBF5;
+    
+
+    --isHeld-bg-color: #D6DBF5;
+
+    /* Answer Styles */
+    --held-correct-answer: ;
+    --held-incorrect-answer: ;
+    --correct-answer: ;
+
 }
- body {
-    background-color: var(--bg-light);
- }
 
  html, body {
      height: 100%;
@@ -25,6 +33,7 @@ h3 {
 }
 form {
     margin: 30px 0 25px;
+    color: var(--color)
 }
 label {
     display: block;
@@ -44,7 +53,7 @@ input[type=number], select {
  
  .btn {
     color: white;
-    background-color: var(--blue-accent);
+    background-color: var(--accent-color);
     padding: 1em 3.5em;
     border: none;
     border-radius: 16px; 
@@ -53,20 +62,31 @@ input[type=number], select {
     font-size: 16px;
     cursor: pointer;
 }
+.btn.start-btn:hover,
+.btn.start-btn:focus {
+    color: white;
+}
 
 .home {
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    
+}
+
+.settingsIconsHome {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    color: var(--color);
 }
 
 .home__title {
     font-family: Karla;
     margin: 0;
-    color: var(--blue);
+    color: var(--color);
     font-weight: 700px;
     font-size: 31px;
 }
@@ -74,7 +94,7 @@ input[type=number], select {
     font-family: Inter;
     margin-top: 10px;
     font-weight: 400;
-    color: var(--blue);
+    color: var(--color);
     font-size: 16px;
 }
 .quiz__header {
@@ -83,9 +103,12 @@ input[type=number], select {
     justify-content: space-between;
     align-items: center;
     font-family: Karla;
-    color: var(--blue);
+    color: var(--color);
     padding-bottom: 1.3rem;
     font-size: 1.3rem;
+}
+.logo {
+    cursor: pointer;
 }
 .homeIcon,
 .sunIcon,
@@ -98,7 +121,7 @@ input[type=number], select {
 .moonIcon:hover,
 .soundIcon:hover {
     transform: scale(1.2);
-    color: var(--blue-accent);
+    color: var(--accent-color);
     cursor: pointer;
 }
 
@@ -110,6 +133,7 @@ input[type=number], select {
     padding-bottom: 1rem;
     min-height: 100%;
     z-index: 1;
+    background-color: var(--bg-color);
 }
 
 .quiz__answers {
@@ -139,15 +163,20 @@ input[type=number], select {
     margin-top: 2rem;
 }
 .quiz__btn {
-    padding: 1em 1.5em;
+    padding: 1em 1.5em;   
+}
+.btn.quiz__btn:hover,
+btn.quiz__btn:focus {
+    color: white;
 }
 .btn:hover,
 .btn:focus {
+    color: var(--btn-hover-color);
     background-color: hsla(230, 34%, 46%, 0.90);
 }
 .quiz__finalText {
     font-size: 1.2rem;
-    color: var(--blue);
+    color: var(--color);
     font-family: Inter;
     font-weight: 700;
     margin-right: 2rem;
@@ -161,7 +190,7 @@ input[type=number], select {
 }
 .question__question {
     font-family: Karla;
-    color: var(--blue);
+    color: var(--color);
     padding-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -172,20 +201,20 @@ input[type=number], select {
 }
 
 .question__btn {
-    border: 1px solid var(--blue);
+    border: 1px solid var(--color);
     border-radius: 10px;
     padding: .25em .75em;
     margin-bottom: .75em;
     margin-right: 1em;
-    background: hsla(99, 100%, 50%, 0);
+    background-color: var(--bg-color);
     font-family: Inter;
     font-weight: 500px;
-    color: var(--blue);
+    color: var(--color);
 }
 .question__btn:focus,
 .question__btn:hover {
     border: none;
-    background-color: #D6DBF5;
+    background-color: var(--btn-hover-bg-color);
     padding: calc(.25em + 1px) calc(.75em + 1px);
     outline: none;
 }

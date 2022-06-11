@@ -6,18 +6,20 @@ export default function Quesiton(props) {
     const answerButtonsElem = props.allAnswers.map((answer, index) => {
         //answer properties => value, id, isHeld, isCorrect
 
+        //Held Styles
         let styles = {
-            backgroundColor: answer.isHeld ? '#D6DBF5'  : 'revert-layer'
+            backgroundColor: answer.isHeld ? 'var(--isHeld-bg-color)'  : 'revert-layer',
+            color: answer.isHeld ? 'var(--focused-btn-color)' : 'revert-layer'
         }
         
         if(props.showAnswers){
             
             if(answer.isHeld && answer.isCorrect){
-                styles = { backgroundColor: "#94D7A2" };
+                styles = { backgroundColor: "#94D7A2", color: 'var(--focused-btn-color)' };
             } else if (answer.isHeld && answer.isCorrect === false) {
-                styles = { backgroundColor: "#F8BCBC", opacity: "50%", border: 'none' };
+                styles = { backgroundColor: "#F8BCBC", opacity: "50%", border: 'none', color: 'var(--focused-btn-color)' };
             } else if (answer.isCorrect) {
-                styles = { backgroundColor: "#94D7A2" };
+                styles = { backgroundColor: "#94D7A2", color: 'var(--focused-btn-color)' };
             } else if (answer.isCorrect === false) {
                 styles = { opacity: "50%" }
             }

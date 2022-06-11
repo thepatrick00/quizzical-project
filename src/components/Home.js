@@ -1,12 +1,24 @@
 import React from 'react'
 import blueBlob from '../images/blueBlobHome.png'
 import yellowBlob from '../images/yellowBlobHome.png'
+import { THEME } from '../constant.js'
+import SettingsIcons from './SettingsIcons.js'
 
 export default function Home(props) {
     const {handleFormChange, formData} = props
 
+    const customTheme = THEME[props.theme];
+
     return (
-        <div className="home">
+        <div className="home" style={customTheme}>
+            <div className='settingsIconsHome'>
+                <SettingsIcons 
+                    startQuiz={props.startQuiz} 
+                    theme={props.theme} 
+                    switchTheme={props.switchTheme}
+                    showHome={false}
+                />
+            </div>
             <h1 className='home__title'>Quizzical</h1>
             <p className='home__text'>Test your knowledge, and win!</p>
 
@@ -74,7 +86,7 @@ export default function Home(props) {
                 </select>   
             </form>
 
-            <button onClick={props.startQuiz}  className='btn'>Start Quiz</button>
+            <button onClick={props.startQuiz}  className='btn start-btn'>Start Quiz</button>
             <img className='yellowBlob' src={yellowBlob} alt='' />
         <img className='blueBlob' src={blueBlob} alt='' />
         </div>

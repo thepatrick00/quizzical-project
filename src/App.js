@@ -13,8 +13,8 @@ export default function App() {
     }
 
     function switchTheme() {
+        console.log('theme value=', theme)
         setTheme(prev => prev === 'light' ? 'dark' : 'light')
-        console.log('theme clicked')
     }
 
     //passed this state up from the home.js so both Home.js & Quiz.js can use the state
@@ -41,10 +41,13 @@ export default function App() {
             isHome 
             ?
             <Home startQuiz={startQuiz} formData={formData} 
-                handleFormChange={handleFormChange} theme={theme}/>
+                handleFormChange={handleFormChange} theme={theme}
+                switchTheme={switchTheme}
+            />
             :
             <Quiz formData={formData} startQuiz={startQuiz} 
-                switchTheme={switchTheme} theme={theme}/>
+                switchTheme={switchTheme} theme={theme}
+            />
             }
         </div>        
     )

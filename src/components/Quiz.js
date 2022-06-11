@@ -3,8 +3,8 @@ import Question from './Question'
 import { nanoid } from 'nanoid'
 import blueBlob from '../images/blueBlob.png'
 import yellowBlob from '../images/yellowBlob.png'
-import { Home as HomeIcon, Sun as SunIcon, Moon as MoonIcon,
-     Volume2 as SoundIcon } from 'react-feather'
+import {THEME} from '../constant.js'
+import SettingsIcons from './SettingsIcons.js'
 
 
 export default function Quiz(props) {
@@ -104,7 +104,6 @@ export default function Quiz(props) {
                 qID = {question.id}
                 showAnswers = {showAnswers}
                 type = {question.type}
-                theme = {props.theme}
             />
         )
     })
@@ -124,27 +123,12 @@ export default function Quiz(props) {
         )
     }
 
-    const iconElements = {
-        render: (
-            <>
-            <HomeIcon className='homeIcon' onClick={props.startQuiz}
-                size={30}
-            />
-
-            {props.theme === 'light'
-            ?
-            <SunIcon className='sunIcon' size={30} onClick={props.switchTheme}/>
-            :
-            <MoonIcon className='sunIcon' size={30} onClick={props.switchTheme}/>
-            }
-
-            <SoundIcon className='soundIcon' size={30}/>
-            </>
-        )
-    }
     
+    
+    const customTheme = THEME[props.theme];
+
     return (
-        <div className='quiz'>
+        <div className='quiz' style={customTheme}>
 
             {
             isLoading
@@ -155,10 +139,13 @@ export default function Quiz(props) {
             :
             <>
             <div className='quiz__header'>
-                <h2>Quizzical</h2>
-                <div>
-                    {iconElements.render}
-                </div>
+                <h2 className='logo' onClick={props.startQuiz}>Quizzical</h2>
+                <SettingsIcons 
+                    startQuiz={props.startQuiz} 
+                    theme={props.theme} 
+                    switchTheme={props.switchTheme}
+                    showHome={true}
+                />
             </div>
             
             <div className='quiz__answers'>
