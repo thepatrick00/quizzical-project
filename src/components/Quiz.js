@@ -140,12 +140,14 @@ export default function Quiz(props) {
             <>
             <div className='quiz__header'>
                 <h2 className='logo' onClick={props.startQuiz}>Quizzical</h2>
-                <SettingsIcons 
-                    startQuiz={props.startQuiz} 
-                    theme={props.theme} 
-                    switchTheme={props.switchTheme}
-                    showHome={true}
-                />
+                <div className='settingsIconsQuiz'>
+                    <SettingsIcons 
+                        startQuiz={props.startQuiz} 
+                        theme={props.theme} 
+                        switchTheme={props.switchTheme}
+                        showHome={true}
+                    />
+                </div>
             </div>
             
             <div className='quiz__answers'>

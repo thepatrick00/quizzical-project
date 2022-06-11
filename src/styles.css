@@ -36,6 +36,9 @@
  html, body {
      height: 100%;
  }
+ body {
+    background-color: var(--bg-color);
+ }
  
 h3 {
      margin: 0;
@@ -88,6 +91,7 @@ input[type=number], select {
 }
 
 .home {
+    position: relative; /* remove it is not keeping blob inside */
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
@@ -96,6 +100,7 @@ input[type=number], select {
     height: 100%;
 }
 
+.settingsIconsQuiz,
 .settingsIconsHome {
     position: absolute;
     top: 32px;
@@ -255,4 +260,25 @@ btn.quiz__btn:focus {
     top: 0;
     z-index: 0;
     mix-blend-mode: var(--blob-mix-blend-mode);
+}
+
+/* this was mostly a desktop first design so I will go with all max-width */
+@media (max-width: 650px) {
+    .home__title {
+        z-index: 1;
+        font-size: 4rem;
+    }
+    .home__text {
+        z-index: 1;
+    }
+    .start-btn {
+        z-index: 1;
+    }
+    input, label, select {
+        z-index: 1;
+    }
+    .settingsIconsHome {
+        top: 16px;
+        right: 16px;
+    }
 }

@@ -8,7 +8,7 @@ function SettingsIcons({startQuiz, theme, switchTheme, showHome=true}) {
 
 
     return (
-        <div>
+        <>
             <HomeIcon className='homeIcon' onClick={startQuiz}
                 size={30} style={showObj}
             />
@@ -21,7 +21,7 @@ function SettingsIcons({startQuiz, theme, switchTheme, showHome=true}) {
             }
 
             <SoundIcon className='soundIcon' size={30}/>
-        </div>
+        </>
     )
 };
 
