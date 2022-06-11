@@ -278,8 +278,9 @@ btn.quiz__btn:focus {
         z-index: 1;
     }
     .settingsIconsHome {
-        top: 16px;
-        right: 16px;
+        position: revert;
+        display: block;
+        margin-left: auto;
     }
 }
 
@@ -288,4 +289,9 @@ btn.quiz__btn:focus {
         font-size: 3.5rem;
         padding-top: 1rem;
     }   
+    .settingsIconsHome {
+        position: revert;
+        display: block;
+        margin-left: auto;
+    }
 }
