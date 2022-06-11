@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Quiz from './components/Quiz'
 import Home from './components/Home'
-import About from './components/About'
 import './styles.css'
 
 export default function App() {
