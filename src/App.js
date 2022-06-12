@@ -37,12 +37,6 @@ export default function App() {
     }
 
     useEffect(() => {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            switchTheme();
-        }
-    }, [switchTheme])
-
-    useEffect(() => {
         localStorage.setItem('theme', theme)
     }, [theme])
 
