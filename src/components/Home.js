@@ -21,7 +21,7 @@ export default function Home(props) {
                 />
             </div>
             <h1 className='home__title'>Quizzical</h1>
-            <p className='home__text'>Play with friends. Test your brain!</p>
+            <p className='home__text'>Test your knowledge!</p>
 
             <form>
                 <label htmlFor='amountOfQuestions'>Amount of Questions</label>
