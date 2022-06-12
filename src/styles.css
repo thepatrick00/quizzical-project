@@ -100,6 +100,21 @@ input[type=number], select {
     height: 100%;
 }
 
+.homeIcon,
+.sunIcon,
+.moonIcon,
+.soundIcon {
+    margin-right: 1em;
+}
+.homeIcon:hover,
+.sunIcon:hover,
+.moonIcon:hover,
+.soundIcon:hover {
+    transform: scale(1.2);
+    color: var(--icon-hover-color);
+    cursor: pointer;
+}
+
 .settingsIconsQuiz,
 .settingsIconsHome {
     position: absolute;
@@ -137,20 +152,6 @@ input[type=number], select {
 .logo {
     cursor: pointer;
 }
-.homeIcon,
-.sunIcon,
-.moonIcon,
-.soundIcon {
-    margin-right: .5em;
-}
-.homeIcon:hover,
-.sunIcon:hover,
-.moonIcon:hover,
-.soundIcon:hover {
-    transform: scale(1.2);
-    color: var(--icon-hover-color);
-    cursor: pointer;
-}
 
 .quiz {
     display: flex;
@@ -169,22 +170,19 @@ input[type=number], select {
     flex-direction: column;
 }
 
-.quiz__loading--text {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    text-align: center;
-}
 .quiz__loading--box {
     display: flex;
+    height: 100vh;
     place-items: center;
+}
+.quiz__loading--text {
+    color: var(--color);
 }
 
 .quiz__footer {
     width: 70%;
     display: flex;
+    z-index: 1;
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
@@ -262,8 +260,14 @@ btn.quiz__btn:focus {
     mix-blend-mode: var(--blob-mix-blend-mode);
 }
 
+
+
 /* this was mostly a desktop first design so I will go with all max-width */
 @media (max-width: 650px) {
+    .home {
+        height: auto; /* We need auto height because otherwise we constrain it to 100% height on smaller screens and that will be too little*/
+        padding-bottom: 2rem;
+    }
     .home__title {
         z-index: 1;
         font-size: 4rem;
@@ -278,9 +282,20 @@ btn.quiz__btn:focus {
         z-index: 1;
     }
     .settingsIconsHome {
-        position: revert;
-        display: block;
+        position: static;
         margin-left: auto;
+        margin-top: 16px;
+        margin-right: 16px;
+    }
+    .quiz .soundIcon {
+        margin-right: 0;
+    }
+    .settingsIconsQuiz {
+        right: 8px;
+    }
+
+    .btn.question__btn {
+        padding: 1rem;
     }
 }
 
@@ -289,9 +304,18 @@ btn.quiz__btn:focus {
         font-size: 3.5rem;
         padding-top: 1rem;
     }   
-    .settingsIconsHome {
-        position: revert;
-        display: block;
-        margin-left: auto;
+    select {
+        color: black;
+        background-color: white;
+        height: 46px;
+    }
+    .homeIcon,
+    .sunIcon,
+    .moonIcon,
+    .soundIcon {
+        margin-right: .75em;
+    }
+    .home .blueBlob {
+        position: absolute;
     }
 }

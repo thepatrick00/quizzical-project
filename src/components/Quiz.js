@@ -111,7 +111,7 @@ export default function Quiz(props) {
         render: (
                 !showAnswers 
                 ? 
-                <div className='quiz__footer'>
+            <div className='quiz__footer'>
                 <button className='btn quiz__btn' onClick={checkAnswers}>Check Answers</button>
             </div>
             :

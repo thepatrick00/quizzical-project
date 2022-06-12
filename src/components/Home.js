@@ -45,7 +45,7 @@ export default function Home(props) {
                     <option value='11'>Film</option>
                     <option value='12'>Music</option>
                     <option value='13'>Musicals & Theatres</option>
-                    <option value='14'>Telivision</option>
+                    <option value='14'>Television</option>
                     <option value='15'>Video Games</option>
                     <option value='16'>Board Games</option>
                     <option value='17'>Science & Nature</option>
@@ -74,12 +74,12 @@ export default function Home(props) {
                     <option value='hard'>Hard</option>
                 </select>
                 <br/>
-                <label htmlFor='type'>Type</label>
+                <label htmlFor='answerType'>Type</label>
                 <select
                     onChange={handleFormChange}
-                    value={formData.type}
-                    name='type'
-                    id='type'
+                    value={formData.answerType}
+                    name='answerType'
+                    id='answerType'
                 >
                     <option value=''>Any</option>
                     <option value='multiple'>Multiple Choice</option>
