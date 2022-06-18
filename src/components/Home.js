@@ -21,7 +21,7 @@ export default function Home(props) {
                 />
             </div>
             <h1 className='home__title'>Quizzical</h1>
-            <p className='home__text'>Test your knowledge!</p>
+            <p className='home__text'>The ultimate trivia game!</p>
 
             <form>
                 <label htmlFor='amountOfQuestions'>Amount of Questions</label>
@@ -85,10 +85,12 @@ export default function Home(props) {
                     <option value='multiple'>Multiple Choice</option>
                     <option value='boolean'>True or False</option>
                 </select>   
-            </form>
 
-            <button onClick={props.startQuiz}  className='btn start-btn'>Play</button>
-            {/* <button className='btn start-btn'>About</button> */}
+            </form>
+            <div style={{width: 'min(267px, 90%)'}}>
+                <button onClick={props.startQuiz}  className='btn start-btn'>Play</button>
+            </div>
+            
             <img className='yellowBlob' src={yellowBlob} alt='' />
             <img className='blueBlob' src={blueBlob} alt='' />
         </div>

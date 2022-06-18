@@ -9,18 +9,18 @@ function SettingsIcons({startQuiz, theme, switchTheme, showHome=true}) {
 
     return (
         <>
-            <HomeIcon className='homeIcon' onClick={startQuiz}
+            <HomeIcon className='icon homeIcon' onClick={startQuiz}
                 size={30} style={showObj}
             />
 
             {theme === 'light'
             ?
-            <SunIcon className='sunIcon' size={30} onClick={switchTheme}/>
+            <SunIcon className='icon sunIcon' size={30} onClick={switchTheme}/>
             :
-            <MoonIcon className='moonIcon' size={30} onClick={switchTheme}/>
+            <MoonIcon className='icon moonIcon' size={30} onClick={switchTheme}/>
             }
 
-            <SoundIcon className='soundIcon' size={30}/>
+            <SoundIcon className='icon soundIcon' size={30}/>
         </>
     )
 };
