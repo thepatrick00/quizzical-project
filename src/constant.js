@@ -1,8 +1,9 @@
 export const THEME = {
     dark: {
         '--bg-color': 'hsl(220deg 26% 14%)', // dark blue
+        '--bg-color-inverse': '#F5F7FB',
         '--color': 'hsl(213deg 15% 97%)', //white
-        // '--accent-color': 'var(--btn-hover-color)',
+        '--accent-color': 'var(--btn-hover-color)',
         '--btn-hover-color': 'hsl(175deg 100% 75%)', // highlighter neon blue
         '--btn-hover-bg-color': 'hsl(216deg 19% 28%)', //dim blue
 
@@ -15,6 +16,7 @@ export const THEME = {
     },
     light: {
         '--bg-color': '#F5F7FB',
+        '--bg-color-inverse': 'hsl(220deg 26% 14%)',
         '--color': '#293264',
         /* same color b/c dark mode do not remove */
         '--focused-btn-color': '#293264',

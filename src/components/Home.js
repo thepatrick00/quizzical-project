@@ -1,16 +1,23 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import blueBlob from '../images/blueBlobHome.png'
 import yellowBlob from '../images/yellowBlobHome.png'
 import { THEME } from '../constant.js'
 import SettingsIcons from './SettingsIcons.js'
+import Modal from './Modal'
 
 export default function Home(props) {
     const {handleFormChange, formData} = props
 
     const customTheme = THEME[props.theme];
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const toggleModal = () => {
+        setIsModalOpen(p => !p);
+    };
+    
     return (
-        <div className="home" style={customTheme}>
+        <div className="home" style={customTheme} >
+            <Modal isOpen={isModalOpen} toggle={toggleModal}/>
             <div className='settingsIconsHome'>
                 <SettingsIcons 
                     startQuiz={props.startQuiz} 
@@ -86,9 +93,9 @@ export default function Home(props) {
                 </select>   
 
             </form>
-            <div style={{width: 'min(267px, 90%)'}}>
-                <button onClick={props.startQuiz}  className='btn start-btn'>Play</button>
-                <button>About</button>
+            <div className='home__btnCtr' style={{width: 'min(267px, 90%)'}}>
+                <button onClick={props.startQuiz}  className='btn home__startBtn'>Play</button>
+                <button onClick={toggleModal} className='btn home__aboutBtn'>About</button>
             </div>
             
             <img className='yellowBlob' src={yellowBlob} alt='' />

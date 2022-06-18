@@ -27,13 +27,13 @@ As of 5/13/22 the app works perfectly as a simple quiz app however I still have 
 - On the homepage I want to add a section where the user can select a category and a difficulty. ✅ 6/3/22
 - Add ability to go back to home page and change settings ✅ 6/3/22
 - I want to add a dark mode style for the quiz ✅ 6/11 - 6/12
-- Add animations to make it feel more alive.
+- Add an improved results panel at the end of the game. ✅ 6/18
+- Add animations to make it feel more alive. ✅ 6/18
 - Add a limit on the questions 5, 10, or 20.
 - Add sound;
 - A celebration, such as confetti or fireworks popping, if you got all the answers right.
 - I want to add the ability to tab through and select each answer with space. When the answer is seclected it will automatically go to the next section of questions.
 - If failed to fetch data, add a better backup.
-- Add an improved results panel at the end of the game.
 
 ## Strech Goal Updates
 - 6/2/22 - 2 Weeks later I came back to my code, read it, and implement true and false answers to the quiz. I had to make sure that "True" was always the first option to choose from.
@@ -44,3 +44,5 @@ As of 5/13/22 the app works perfectly as a simple quiz app however I still have 
 - 6/11/22 - Dark mode feature was added! You can toggle the sun/moon icon to switch the theme. I create this using CSS variables.
 
 Also, if you choose dark or light theme, your settings will be saved.
+
+- 6/18/22 - On mobile I added an improved results panel. Now if you want to play again, the page will scroll up to the top with all the answers on click. I also added an about Modal and some animations.

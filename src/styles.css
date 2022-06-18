@@ -1,5 +1,6 @@
 :root {
     --bg-color: #F5F7FB;
+    --bg-color-inverse: hsl(220deg 26% 14%); 
     --color: #293264;
     /* same color b/c dark mode do not remove */
     --focused-btn-color: #293264;
@@ -17,8 +18,10 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: hsl(220deg 26% 14%); 
+        --bg-color-inverse: #F5F7FB;
         --color: hsl(213deg 15% 97%);
         --btn-hover-color: hsl(175deg 100% 75%);
+        --accent-color: hsl(175deg 100% 75%);
         --btn-hover-bg-color: hsl(216deg 19% 28%);
         --isHeld-color: #293264;
 
@@ -79,7 +82,7 @@ input[type=number], select {
 }
 .home__startBtn,
 .quiz__btn {
-    background-color: var(--accent-color);
+    background-color: #4D5B9E;
 }
 .home {
     /* relative is so the blue blob on mobile stays at the bottom */
@@ -250,6 +253,9 @@ input[type=number], select {
     z-index: 0;
     mix-blend-mode: var(--blob-mix-blend-mode);
 }
+.home__btnCtr {
+    z-index: 1;
+}
 .home__aboutBtn {
     background-color: orange;
     margin-top: 20px;
@@ -259,17 +265,91 @@ input[type=number], select {
 .home__aboutBtn {
     transition: 400ms;
     width: 100%;
+    z-index: 2;
 }
 .home__startBtn:hover,
 .home__aboutBtn:hover {
     transform: scale(1.1);
     filter: brightness(110%);
 }
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%)
+    }
+    to {
+        transform: translateX(0)
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.modalWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(231, 42%, 28%, 0.418);
+    z-index: 2;
+    animation: fade-in 1s linear;
+    animation-delay: 200ms;
+    animation-fill-mode: backwards;
+}
+.modal {
+    width: 30%;
+    height: 100%;
+    border: 3px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    z-index: 2;
+    animation: slide-in 500ms ease-out;
+}
+.modal__content {
+    padding-top: 3rem;
+    width: 90%;
+    margin: 0 auto;
+}
+.modal__content article {
+    padding: 1.5rem 0;
+    line-height: 1.5;
+}
+.modal__exitWrapper {
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: 400ms;
+}
+.modal__exitWrapper:hover {
+    transform: scale(1.3);
+}
+p, h3 {
+    color: var(--focused-btn-color);
+}
+a {
+    color: #4D5B9E;
+    font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+    .modal {
+        width: 50%;
+    }
+}
 
 /* --MOBILE MEDIA QUERY */
 
 /* this was mostly a desktop first design so I will go with all max-width */
 @media (max-width: 650px) {
+    .modal {
+        width: 70%;
+    }
     .home {
         height: auto; /* We need auto height because otherwise we constrain it to 100% height on smaller screens and that will be too little*/
         padding-bottom: 2rem;
