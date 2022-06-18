@@ -26,34 +26,24 @@
 
         --question-border-bottom: hsl(231 41% 90% / .7);
         --icon-hover-color: var(--btn-hover-color);
-    }
-
-    
-};
+    }   
+}
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Karla';
 }
-
 p {
     font-family: 'Inter'
 }
-
- html, body {
-     height: 100%;
- }
- body {
-    background-color: var(--bg-color);
- }
- 
-h3 {
-     margin: 0;
+html, body {
+    height: 100%;
 }
-
+body {
+    background-color: var(--bg-color);
+}
 *, *::before, *::after {
     box-sizing: border-box;
-    }
-
+}
 * {
     margin: 0;
 }
@@ -67,7 +57,6 @@ label {
     display: block;
     font-family: Inter;
 }
-
 input[type=number], select {
     width: 100%;
     padding: 12px 20px;
@@ -78,10 +67,8 @@ input[type=number], select {
     box-sizing: border-box;
     font-family: Inter;
 }
- 
- .btn {
+.btn {
     color: white;
-    background-color: var(--accent-color);
     padding: 1em 3.5em;
     border: none;
     border-radius: 16px; 
@@ -90,13 +77,13 @@ input[type=number], select {
     font-size: 16px;
     cursor: pointer;
 }
-.btn.start-btn:hover,
-.btn.start-btn:focus {
-    color: white;
+.start-btn,
+.quiz__btn {
+    background-color: var(--accent-color);
 }
-
 .home {
-    position: relative; /* remove it is not keeping blob inside */
+    /* relative is so the blue blob on mobile stays at the bottom */
+    position: relative;
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
@@ -104,7 +91,6 @@ input[type=number], select {
     align-items: center;
     height: 100%;
 }
-
 .icon {
     margin-right: 1em;
     transition: transform 450ms;
@@ -115,8 +101,6 @@ input[type=number], select {
     color: var(--icon-hover-color);
     cursor: pointer;
 }
-
-.settingsIconsQuiz,
 .settingsIconsHome {
     position: absolute;
     top: 32px;
@@ -124,7 +108,6 @@ input[type=number], select {
     color: var(--color);
     z-index: 1;
 }
-
 .home__title {
     font-family: Karla;
     margin: 0;
@@ -139,7 +122,25 @@ input[type=number], select {
     color: var(--color);
     font-size: 16px;
 }
+.settingsIconsQuiz {
+    display: block;
+}
+.logo {
+    cursor: pointer;
+}
+/* .quiz is the whole quiz page and everything inside */
+.quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    min-height: 100%;
+    z-index: 1;
+    background-color: var(--bg-color);
+}
 .quiz__header {
+    position: relative;
     display: flex;
     width: min(95%, 620px);
     justify-content: space-between;
@@ -150,36 +151,33 @@ input[type=number], select {
     font-size: 1.3rem;
     z-index: 1;
 }
-.logo {
-    cursor: pointer;
-}
-
-.quiz {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    min-height: 100%;
-    z-index: 1;
-    background-color: var(--bg-color);
-}
-
 .quiz__answers {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+/* All the font styles are inheritable */
+@keyframes bounce {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
 
-.quiz__loading--box {
-    display: flex;
+.quiz__loadingBox {
+    display: grid;
     height: 100vh;
-    place-items: center;
-}
-.quiz__loading--text {
+    place-content: center;
+    font-family: 'Inter', Helvetica, Futura, san-serif;
     color: var(--color);
+    font-size: 2rem;
 }
-
+.quiz__loadingText {
+    animation: bounce 1.8s ease-in-out infinite alternate;
+    animation-delay: 500ms;
+}
 .quiz__footer {
     width: 70%;
     display: flex;
@@ -191,12 +189,8 @@ input[type=number], select {
 .quiz__btn {
     padding: 1em 1.5em;   
 }
-.btn.quiz__btn:hover,
-btn.quiz__btn:focus {
-    color: white;
-}
-.btn:hover,
-.btn:focus {
+.question__btn:hover,
+.question__btn:focus {
     color: var(--btn-hover-color);
     background-color: hsla(230, 34%, 46%, 0.90);
 }
@@ -265,7 +259,7 @@ btn.quiz__btn:focus {
 .about-btn {
     transition: 400ms;
     width: 100%;
-};
+}
 
 .start-btn:hover,
 .about-btn:hover {

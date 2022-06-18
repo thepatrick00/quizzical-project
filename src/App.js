@@ -28,7 +28,7 @@ export default function App() {
 
     function handleFormChange(e) {
         const {name, value} = e.target;
-        console.log(value)
+        
         setFormData(prev => {
             return {
                 ...prev, [name] : value

@@ -5,7 +5,6 @@ import { THEME } from '../constant.js'
 import SettingsIcons from './SettingsIcons.js'
 
 export default function Home(props) {
-    // const {switchTheme, theme, isHome} = props
     const {handleFormChange, formData} = props
 
     const customTheme = THEME[props.theme];
@@ -89,6 +88,7 @@ export default function Home(props) {
             </form>
             <div style={{width: 'min(267px, 90%)'}}>
                 <button onClick={props.startQuiz}  className='btn start-btn'>Play</button>
+                <button>About</button>
             </div>
             
             <img className='yellowBlob' src={yellowBlob} alt='' />

@@ -130,10 +130,10 @@ export default function Quiz(props) {
         <div className='quiz' style={customTheme}>
 
             {
-            isLoading
+            !isLoading
             ?
-            <div className='quiz__loading--box'>
-                <h3 className='quiz__loading--text'>One moment please...</h3>
+            <div className='quiz__loadingBox'>
+                <h3 className='quiz__loadingText'>One moment please...</h3>
             </div>
             :
             <>
