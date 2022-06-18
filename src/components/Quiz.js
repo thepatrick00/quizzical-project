@@ -86,9 +86,16 @@ export default function Quiz(props) {
     }
     
     /* Reset Quiz Section */
+    const goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: window.innerWidth > 600 ? 'auto' : 'smooth',
+        });
+    };
     function reset() {
         setShowAnswers(false);
-        setResetQuiz(prev => prev + 1)
+        setResetQuiz(prev => prev + 1);
+        goToTop();    
     }
     
     
@@ -115,7 +122,7 @@ export default function Quiz(props) {
                 <button className='btn quiz__btn' onClick={checkAnswers}>Check Answers</button>
             </div>
             :
-            <div className='quiz__footer'>
+            <div className='quiz__footer quiz__footer--finished'>
                 <p className='quiz__finalText'>{`You scored ${score}/5 answers`}</p>
                 <button className='btn quiz__btn' onClick={reset}>Play Again</button>
             </div>   
@@ -130,7 +137,7 @@ export default function Quiz(props) {
         <div className='quiz' style={customTheme}>
 
             {
-            !isLoading
+            isLoading
             ?
             <div className='quiz__loadingBox'>
                 <h3 className='quiz__loadingText'>One moment please...</h3>
