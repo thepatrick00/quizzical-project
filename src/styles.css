@@ -104,6 +104,12 @@ input[type=number], select {
     color: var(--icon-hover-color);
     cursor: pointer;
 }
+@media (max-width: 650px) {
+    .icon:hover {
+        transform: none;
+        color: revert;
+    }
+}
 .settingsIconsHome {
     position: absolute;
     top: 32px;
@@ -272,6 +278,13 @@ input[type=number], select {
     transform: scale(1.1);
     filter: brightness(110%);
 }
+@media (max-width: 650px) {
+    .home__startBtn:hover,
+    .home__aboutBtn:hover {
+        transform: none;
+        filter: none;
+    }
+}
 @keyframes slide-in {
     from {
         transform: translateX(-100%)
@@ -307,7 +320,8 @@ input[type=number], select {
     left: 0;
     background-color: whitesmoke;
     z-index: 2;
-    animation: slide-in 500ms ease-out;
+    animation: slide-in 400ms ease-out;
+    overflow-y: auto;
 }
 .modal__content {
     padding-top: 3rem;
@@ -321,6 +335,7 @@ input[type=number], select {
 .modal__exitWrapper {
     padding: 16px;
     position: absolute;
+    background-color: whitesmoke;
     top: 0;
     right: 0;
     cursor: pointer;
@@ -350,6 +365,9 @@ a {
     .modal {
         width: 70%;
     }
+    .modalWrapper {
+        animation: none;
+    }
     .home {
         height: auto; /* We need auto height because otherwise we constrain it to 100% height on smaller screens and that will be too little*/
         padding-bottom: 2rem;
@@ -359,10 +377,6 @@ a {
         font-size: 4rem;
     }
     .home__text {
-        z-index: 1;
-    }
-    .home__startBtn,
-    .home__aboutBtn {
         z-index: 1;
     }
     input, label, select {
@@ -413,7 +427,7 @@ a {
         position: fixed;
         bottom: 0;
         background-color: var(--bg-color);
-        border: 2px solid var(--accent-color);
+        border: 2px solid #4D5B9E;
         width: 100%;
         padding: 1rem;
     }
