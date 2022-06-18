@@ -77,7 +77,7 @@ input[type=number], select {
     font-size: 16px;
     cursor: pointer;
 }
-.start-btn,
+.home__startBtn,
 .quiz__btn {
     background-color: var(--accent-color);
 }
@@ -165,7 +165,6 @@ input[type=number], select {
         transform: scale(1.2);
     }
 }
-
 .quiz__loadingBox {
     display: grid;
     height: 100vh;
@@ -189,11 +188,6 @@ input[type=number], select {
 .quiz__btn {
     padding: 1em 1.5em;   
 }
-.question__btn:hover,
-.question__btn:focus {
-    color: var(--btn-hover-color);
-    background-color: hsla(230, 34%, 46%, 0.90);
-}
 .quiz__finalText {
     font-size: 1.2rem;
     color: var(--color);
@@ -201,7 +195,6 @@ input[type=number], select {
     font-weight: 700;
     margin-right: 2rem;
 }
-
 .question__component {
     width: min(90%, 600px);
     border-bottom: 1px solid var(--question-border-bottom);
@@ -214,31 +207,35 @@ input[type=number], select {
     padding-bottom: 1rem;
     font-size: 1.1rem;
 }
-
+.question__btn:hover,
+.question__btn:focus {
+    color: var(--btn-hover-color);
+    background-color: hsla(230, 34%, 46%, 0.90);
+}
 .question__btnctr {
     display: flex;
     flex-wrap: wrap;
 }
-
 .question__btn {
+    background-color: var(--bg-color);
+    color: var(--color);
     border: 1px solid var(--color);
     border-radius: 10px;
+    /* the padding connection from comment below */
     padding: .25em .75em;
     margin-bottom: .75em;
     margin-right: 1em;
-    background-color: var(--bg-color);
     font-family: Inter;
     font-weight: 500px;
-    color: var(--color);
 }
 .question__btn:focus,
 .question__btn:hover {
     border: none;
     background-color: var(--btn-hover-bg-color);
+    /* calc on padding is so there is no layout shift on hover as sizes change */
     padding: calc(.25em + 1px) calc(.75em + 1px);
     outline: none;
 }
-
 .blueBlob {
     position: fixed;
     bottom: 0;
@@ -246,7 +243,6 @@ input[type=number], select {
     z-index: 0;
     mix-blend-mode: var(--blob-mix-blend-mode);
 }
-
 .yellowBlob {
     position: fixed;
     right: 0;
@@ -254,29 +250,21 @@ input[type=number], select {
     z-index: 0;
     mix-blend-mode: var(--blob-mix-blend-mode);
 }
-
-.start-btn,
-.about-btn {
-    transition: 400ms;
-    width: 100%;
-}
-
-.start-btn:hover,
-.about-btn:hover {
-    transform: scale(1.1)
-}
-
-.about-btn {
+.home__aboutBtn {
     background-color: orange;
     margin-top: 20px;
     color: ghostwhite;
 }
-
-.about-btn:hover {
-    background-color: hsl(39, 100%, 55%);
-    color: ghostwhite;
+.home__startBtn,
+.home__aboutBtn {
+    transition: 400ms;
+    width: 100%;
 }
-
+.home__startBtn:hover,
+.home__aboutBtn:hover {
+    transform: scale(1.1);
+    filter: brightness(110%);
+}
 
 /* --MOBILE MEDIA QUERY */
 
@@ -293,8 +281,8 @@ input[type=number], select {
     .home__text {
         z-index: 1;
     }
-    .start-btn,
-    .about-btn {
+    .home__startBtn,
+    .home__aboutBtn {
         z-index: 1;
     }
     input, label, select {
@@ -316,6 +304,9 @@ input[type=number], select {
     .btn.question__btn {
         padding: 1rem;
     }
+    .quiz__loadingText {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 400px) {
@@ -333,5 +324,17 @@ input[type=number], select {
     }
     .home .blueBlob {
         position: absolute;
+    }
+    .quiz {
+        padding-bottom: 5rem;
+    }
+
+    .quiz__footer--finished {
+        position: fixed;
+        bottom: 0;
+        background-color: var(--bg-color);
+        border: 2px solid var(--accent-color);
+        width: 100%;
+        padding: 1rem;
     }
 }
