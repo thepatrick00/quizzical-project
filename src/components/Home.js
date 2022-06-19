@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import blueBlob from '../images/blueBlobHome.png'
 import yellowBlob from '../images/yellowBlobHome.png'
 import { THEME } from '../constant.js'
