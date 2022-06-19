@@ -15,11 +15,11 @@ export default function Quiz(props) {
 
     /* Create initial data in my desired format */
     
-    let apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${category}&difficulty=${difficulty}`;
-    if(category === 'any') {
-        apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&difficulty=${difficulty}`;
-    }
     useEffect(() => {
+        let apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${category}&difficulty=${difficulty}`;
+        if(category === 'any') {
+            apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&difficulty=${difficulty}`;
+        }
         fetch(apiLink)
             .then(res => res.json())
             .then(data => {
