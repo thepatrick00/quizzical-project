@@ -24,7 +24,9 @@ export default function App() {
         difficulty: '',
         answerType: '',
         amountOfQuestions: '5'
-    })
+    });
+
+    console.log(formData);
 
     function handleFormChange(e) {
         const {name, value} = e.target;

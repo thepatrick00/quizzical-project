@@ -31,13 +31,16 @@ export default function Home(props) {
 
             <form>
                 <label htmlFor='amountOfQuestions'>Amount of Questions</label>
-                <input
+                <select
                     onChange={handleFormChange}
-                    type='number'
                     value={formData.amountOfQuestions}
                     name='amountOfQuestions'
                     id='amountOfQuestions'
-                />
+                >
+                    <option value='5'>5</option>
+                    <option value='10'>10</option>
+                    <option value='15'>15</option>
+                </select>
                 <br/>
                 <label htmlFor='category'>Category</label>
                 <select
@@ -46,6 +49,7 @@ export default function Home(props) {
                     name='category'
                     id='category'
                 >
+                    <option value='any'>Any Category</option>
                     <option value='9'>General Knowledge</option>
                     <option value='10'>Books</option>
                     <option value='11'>Film</option>
@@ -65,6 +69,11 @@ export default function Home(props) {
                     <option value='25'>Art</option>
                     <option value='26'>Celebrities</option>
                     <option value='27'>Animals</option>
+                    <option value='28'>Vehicles</option>
+                    <option value='29'>Comics</option>
+                    <option value='30'>Gadgets</option>
+                    <option value='31'>Anime & Manga</option>
+                    <option value='32'>Cartoons & Animations</option>
                 </select>
                 <br/>
                 <label htmlFor='difficulty'>Difficulty</label>
@@ -79,21 +88,8 @@ export default function Home(props) {
                     <option value='medium'>Medium</option>
                     <option value='hard'>Hard</option>
                 </select>
-                <br/>
-                <label htmlFor='answerType'>Type</label>
-                <select
-                    onChange={handleFormChange}
-                    value={formData.answerType}
-                    name='answerType'
-                    id='answerType'
-                >
-                    <option value=''>Any</option>
-                    <option value='multiple'>Multiple Choice</option>
-                    <option value='boolean'>True or False</option>
-                </select>   
-
             </form>
-            <div className='home__btnCtr' style={{width: 'min(267px, 90%)'}}>
+            <div className='home__btnCtr' style={{width: 'min(235px, 90%)'}}>
                 <button onClick={props.startQuiz}  className='btn home__startBtn'>Play</button>
                 <button onClick={toggleModal} className='btn home__aboutBtn'>About</button>
             </div>

@@ -14,10 +14,16 @@ export default function Quiz(props) {
     const {amountOfQuestions, answerType, category, difficulty} = props.formData
 
     /* Create initial data in my desired format */
+    
+    let apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${category}&difficulty=${difficulty}`;
+    if(category === 'any') {
+        apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&difficulty=${difficulty}`;
+    }
     useEffect(() => {
-        fetch(`https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${category}&difficulty=${difficulty}&type=${answerType}`)
+        fetch(apiLink)
             .then(res => res.json())
             .then(data => {
+                console.log('api response code', data)
                 setQuizData(() => {
                     return data.results.map(question => {
                         
