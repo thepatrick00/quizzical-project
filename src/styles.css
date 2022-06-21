@@ -42,7 +42,19 @@ html, body {
     height: 100%;
 }
 body {
+    background-color: var(--bg-color);   
+}
+::-webkit-scrollbar {
     background-color: var(--bg-color);
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color);
+    border-radius: 9999px;
+    border: 1px solid var(--color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--isHeld-bg-color);
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -224,12 +236,7 @@ input[type=number], select {
     padding-bottom: 1rem;
     font-size: 1.1rem;
 }
-.question__btn:hover,
-.question__btn:focus {
-    color: var(--btn-hover-color);
-    background-color: hsla(230, 34%, 46%, 0.90);
-}
-.question__btnctr {
+.question__btnCtr {
     display: flex;
     flex-wrap: wrap;
 }
@@ -244,9 +251,12 @@ input[type=number], select {
     margin-right: 1em;
     font-family: Inter;
     font-weight: 500px;
+    position: relative;
 }
 .question__btn:focus,
 .question__btn:hover {
+    color: var(--btn-hover-color);
+    background-color: hsla(230, 34%, 46%, 0.90);
     border: none;
     background-color: var(--btn-hover-bg-color);
     /* calc on padding is so there is no layout shift on hover as sizes change */
@@ -360,6 +370,9 @@ a {
     font-weight: bold;
 }
 
+
+
+
 @media (max-width: 1000px) {
     .modal {
         width: 50%;
@@ -427,4 +440,14 @@ a {
     .home .blueBlob {
         position: absolute;
     }
+
+    /* this will increase the mobile touch space */
+    .question__btn::after {
+        --spacing: -16px;
+        content: '';
+        top: var(--spacing);
+        left: var(--spacing);
+        right: var(--spacing);
+        bottom: var(--spacing);
+    };
 }

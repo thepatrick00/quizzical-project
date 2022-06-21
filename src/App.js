@@ -20,7 +20,7 @@ export default function App() {
 
     //passed this state up from the home.js so both Home.js & Quiz.js can use the state
     const [formData, setFormData] = useState({
-        category: '9',
+        category: 'any',
         difficulty: '',
         answerType: '',
         amountOfQuestions: '5'
