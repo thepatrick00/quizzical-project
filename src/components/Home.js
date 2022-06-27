@@ -24,6 +24,8 @@ export default function Home(props) {
                     theme={props.theme} 
                     switchTheme={props.switchTheme}
                     showHome={false}
+                    sound={props.sound}
+                    toggleSound={props.toggleSound}
                 />
             </div>
             <h1 className='home__title'>Quizzical</h1>

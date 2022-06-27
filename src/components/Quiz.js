@@ -120,10 +120,7 @@ export default function Quiz(props) {
         )
     })
 
-    const buttonElements = {
-        render: (
-                !showAnswers 
-                ? 
+    let buttonElements = !showAnswers ? 
             <div className='quiz__footer'>
                 <button className='btn quiz__btn' onClick={checkAnswers}>Check Answers</button>
             </div>
@@ -131,11 +128,7 @@ export default function Quiz(props) {
             <div className='quiz__footer quiz__footer--finished'>
                 <p className='quiz__finalText'>{`You scored ${score}/5 answers`}</p>
                 <button className='btn quiz__btn' onClick={reset}>Play Again</button>
-            </div>   
-        )
-    }
-
-    
+            </div>;    
     
     const customTheme = THEME[props.theme];
 
@@ -166,7 +159,7 @@ export default function Quiz(props) {
             
             <div className='quiz__answers'>
                 {questionElements} 
-                {buttonElements.render}
+                {buttonElements}
             </div>
             </>
             }

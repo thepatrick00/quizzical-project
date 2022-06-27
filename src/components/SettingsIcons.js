@@ -1,8 +1,9 @@
 import React from 'react'
 import { Home as HomeIcon, Sun as SunIcon, Moon as MoonIcon,
-    Volume2 as SoundIcon } from 'react-feather';
+    Volume2 as SoundIcon, VolumeX as SoundOffIcon } from 'react-feather';
 
-function SettingsIcons({startQuiz, theme, switchTheme, showHome=true}) {
+function SettingsIcons({startQuiz, theme, switchTheme, showHome=true, sound,
+    toggleSound}) {
     let showObj;
     showHome ? showObj = {display: 'inline'} : showObj = {display: 'none'};
 
@@ -19,8 +20,13 @@ function SettingsIcons({startQuiz, theme, switchTheme, showHome=true}) {
             :
             <MoonIcon className='icon moonIcon' size={30} onClick={switchTheme}/>
             }
-
-            <SoundIcon className='icon soundIcon' size={30}/>
+            
+            {/* {sound === true
+            ?
+            <SoundIcon className='icon soundIcon' size={30} onClick={toggleSound}/>
+            :
+            <SoundOffIcon className='icon soundIcon' size={30} onClick={toggleSound}/>
+            } */}
         </>
     )
 };
