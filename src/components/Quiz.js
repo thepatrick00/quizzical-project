@@ -7,6 +7,7 @@ import {THEME} from '../constant.js'
 import SettingsIcons from './SettingsIcons.js'
 
 export default function Quiz(props) {
+    console.log('quiz props', props)
     const [quizData, setQuizData] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
     const [resetQuiz, setResetQuiz] = useState(0);
@@ -126,7 +127,7 @@ export default function Quiz(props) {
             </div>
             :
             <div className='quiz__footer quiz__footer--finished'>
-                <p className='quiz__finalText'>{`You scored ${score}/5 answers`}</p>
+                <p className='quiz__finalText'>{`You scored ${score}/${props.formData.amountOfQuestions} answers`}</p>
                 <button className='btn quiz__btn' onClick={reset}>Play Again</button>
             </div>;    
     
