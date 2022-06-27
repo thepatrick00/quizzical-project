@@ -1,6 +1,6 @@
 import React from 'react'
 import { Home as HomeIcon, Sun as SunIcon, Moon as MoonIcon,
-    Volume2 as SoundIcon, VolumeX as SoundOffIcon } from 'react-feather';
+    /*Volume2 as SoundIcon, VolumeX as SoundOffIcon*/ } from 'react-feather';
 
 function SettingsIcons({startQuiz, theme, switchTheme, showHome=true, sound,
     toggleSound}) {
