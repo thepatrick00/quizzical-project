@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import { X } from 'react-feather';
 import PropTypes from 'prop-types';

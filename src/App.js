@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, {useState, useEffect} from 'react';
 import Quiz from './components/Quiz';
 import Home from './components/Home';

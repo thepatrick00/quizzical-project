@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 export const THEME = {
     dark: {
         '--bg-color': 'hsl(220deg 26% 14%)', // dark blue

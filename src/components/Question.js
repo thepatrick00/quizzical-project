@@ -16,7 +16,6 @@ Question.propTypes = {
 };
 
 export default function Question(props) {
-    console.log('question', props);
     const answerButtonsElem = props.allAnswers.map((answer, index) => {
         //answer properties => value, id, isHeld, isCorrect
 
