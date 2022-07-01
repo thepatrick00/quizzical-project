@@ -9,10 +9,10 @@ import {THEME} from '../constant.js';
 import SettingsIcons from './SettingsIcons.js';
 
 Quiz.propTypes = {
-    startQuiz: PropTypes.func,
+    toggleIsHome: PropTypes.func,
     formData: PropTypes.object,
     theme: PropTypes.string,
-    switchTheme: PropTypes.func,
+    toggleTheme: PropTypes.func,
 };
 
 export default function Quiz(props) {
@@ -153,14 +153,14 @@ export default function Quiz(props) {
                     :
                     <>
                         <div className='quiz__header'>
-                            <h2 className='logo' onClick={props.startQuiz}>
+                            <h2 className='logo' onClick={props.toggleIsHome}>
                                 Quizzical
                             </h2>
                             <div className='settingsIconsQuiz'>
                                 <SettingsIcons 
-                                    startQuiz={props.startQuiz} 
+                                    toggleIsHome={props.toggleIsHome} 
                                     theme={props.theme} 
-                                    switchTheme={props.switchTheme}
+                                    toggleTheme={props.toggleTheme}
                                     showHome={true}
                                 />
                             </div>

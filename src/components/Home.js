@@ -8,11 +8,11 @@ import SettingsIcons from './SettingsIcons.js';
 import Modal from './Modal';
 
 Home.propTypes = {
-    startQuiz: PropTypes.func,
+    toggleIsHome: PropTypes.func,
     formData: PropTypes.object,
     handleFormChange: PropTypes.func,
     theme: PropTypes.string,
-    switchTheme: PropTypes.func,
+    toggleTheme: PropTypes.func,
     isHome: PropTypes.bool,
 };
 
@@ -32,9 +32,9 @@ export default function Home(props) {
             <Modal isOpen={isModalOpen} toggle={toggleModal}/>
             <div className='settingsIconsHome'>
                 <SettingsIcons 
-                    startQuiz={props.startQuiz} 
+                    toggleIsHome={props.toggleIsHome} 
                     theme={props.theme} 
-                    switchTheme={props.switchTheme}
+                    toggleTheme={props.toggleTheme}
                     showHome={false}
                     // sound={props.sound}
                     // toggleSound={props.toggleSound}
@@ -104,7 +104,7 @@ export default function Home(props) {
                 </select>
             </form>
             <div className='home__btnCtr' style={{width: 'min(235px, 90%)'}}>
-                <button onClick={props.startQuiz}  className='btn home__startBtn'>Play</button>
+                <button onClick={props.toggleIsHome}  className='btn home__startBtn'>Play</button>
                 <button onClick={toggleModal} className='btn home__aboutBtn'>About</button>
             </div>
             
