@@ -47,7 +47,7 @@ export default function App() {
                     ?
                     <Home toggleIsHome={toggleIsHome} formData={formData} 
                         handleFormChange={handleFormChange} theme={theme}
-                        toggleTheme={toggleTheme} isHome={isHome}
+                        toggleTheme={toggleTheme}
                     />
                     :
                     <Quiz formData={formData} toggleIsHome={toggleIsHome} 
