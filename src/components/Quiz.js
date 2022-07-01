@@ -1,18 +1,26 @@
-import React, {useEffect, useState} from 'react'
-import Question from './Question'
-import { nanoid } from 'nanoid'
-import blueBlob from '../images/blueBlob.png'
-import yellowBlob from '../images/yellowBlob.png'
-import {THEME} from '../constant.js'
-import SettingsIcons from './SettingsIcons.js'
+/* eslint-disable linebreak-style */
+import React, {useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
+import Question from './Question';
+import { nanoid } from 'nanoid';
+import blueBlob from '../images/blueBlob.png';
+import yellowBlob from '../images/yellowBlob.png';
+import {THEME} from '../constant.js';
+import SettingsIcons from './SettingsIcons.js';
+
+Quiz.propTypes = {
+    startQuiz: PropTypes.func,
+    formData: PropTypes.object,
+    theme: PropTypes.string,
+    switchTheme: PropTypes.func,
+};
 
 export default function Quiz(props) {
-    console.log('quiz props', props)
     const [quizData, setQuizData] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
     const [resetQuiz, setResetQuiz] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
-    const {amountOfQuestions, answerType, category, difficulty} = props.formData
+    const {amountOfQuestions, answerType, category, difficulty} = props.formData;
 
     /* Create initial data in my desired format */
     
@@ -24,12 +32,12 @@ export default function Quiz(props) {
         fetch(apiLink)
             .then(res => res.json())
             .then(data => {
-                console.log('api response code', data)
+                console.log('api response code', data);
                 setQuizData(() => {
                     return data.results.map(question => {
                         
                         const incorrect = question.incorrect_answers.map(answer => {
-                            return {value: answer, id: nanoid(), isHeld: false, isCorrect: false}
+                            return {value: answer, id: nanoid(), isHeld: false, isCorrect: false};
                         });
                         
                         const correct = {value: question.correct_answer, id: nanoid(), isHeld: false, isCorrect: true};
@@ -40,20 +48,20 @@ export default function Quiz(props) {
 
                         /* T/F AnswersArr logic */
                         if(question.type === 'boolean') {
-                            if(correct.value === "True") {
-                                allAnswersArr = [correct, incorrect[0]]
+                            if(correct.value === 'True') {
+                                allAnswersArr = [correct, incorrect[0]];
                             } else {
-                                allAnswersArr = [incorrect[0], correct]
+                                allAnswersArr = [incorrect[0], correct];
                             }    
                         }
                         
                         return {...question, allAnswers: allAnswersArr, id: nanoid()}; 
-                    })
-                })
+                    });
+                });
             })
             .catch(error => console.log(error))
-            .finally(() => setIsLoading(false))
-    }, [resetQuiz, amountOfQuestions, answerType, category, difficulty])
+            .finally(() => setIsLoading(false));
+    }, [resetQuiz, amountOfQuestions, answerType, category, difficulty]);
 
     /* Update State on Answer Click Section */
     // qID = {question.id} passed in as a prop to Question component, each time I loop over with .map()
@@ -63,23 +71,23 @@ export default function Quiz(props) {
         setQuizData(prevData => {
             return prevData.map( question => {        
                 if(qID !== question.id ){
-                    return question
+                    return question;
                 } else {
                     const newAnswers = question.allAnswers.map(answer => (
                         answer.id === aID 
-                        ? {...answer, isHeld: !answer.isHeld}
-                        : {...answer, isHeld: false}  
-                    ))
+                            ? {...answer, isHeld: !answer.isHeld}
+                            : {...answer, isHeld: false}  
+                    ));
                     
-                    return {...question, allAnswers: newAnswers}
+                    return {...question, allAnswers: newAnswers};
                 }
-            })
-        })
+            });
+        });
     }
     
     /* Check Quiz Answers section */
     function checkAnswers() {
-        setShowAnswers(true)
+        setShowAnswers(true);
     }
     
     let score = 0;
@@ -88,8 +96,8 @@ export default function Quiz(props) {
         quizData.map((question) => {
             return question.allAnswers.forEach(answer => {
                 return answer.isHeld && answer.isCorrect ? score++ : score;
-            })
-        })
+            });
+        });
     }
     
     /* Reset Quiz Section */
@@ -118,18 +126,18 @@ export default function Quiz(props) {
                 showAnswers = {showAnswers}
                 type = {question.type}
             />
-        )
-    })
+        );
+    });
 
     let buttonElements = !showAnswers ? 
-            <div className='quiz__footer'>
-                <button className='btn quiz__btn' onClick={checkAnswers}>Check Answers</button>
-            </div>
-            :
-            <div className='quiz__footer quiz__footer--finished'>
-                <p className='quiz__finalText'>{`You scored ${score}/${props.formData.amountOfQuestions} answers`}</p>
-                <button className='btn quiz__btn' onClick={reset}>Play Again</button>
-            </div>;    
+        <div className='quiz__footer'>
+            <button className='btn quiz__btn' onClick={checkAnswers}>Check Answers</button>
+        </div>
+        :
+        <div className='quiz__footer quiz__footer--finished'>
+            <p className='quiz__finalText'>{`You scored ${score}/${props.formData.amountOfQuestions} answers`}</p>
+            <button className='btn quiz__btn' onClick={reset}>Play Again</button>
+        </div>;    
     
     const customTheme = THEME[props.theme];
 
@@ -137,35 +145,35 @@ export default function Quiz(props) {
         <div className='quiz' style={customTheme}>
 
             {
-            isLoading
-            ?
-            <div className='quiz__loadingBox'>
-                <h3 className='quiz__loadingText'>One moment please...</h3>
-            </div>
-            :
-            <>
-            <div className='quiz__header'>
-                <h2 className='logo' onClick={props.startQuiz}>
-                    Quizzical
-                </h2>
-                <div className='settingsIconsQuiz'>
-                    <SettingsIcons 
-                        startQuiz={props.startQuiz} 
-                        theme={props.theme} 
-                        switchTheme={props.switchTheme}
-                        showHome={true}
-                    />
-                </div>
-            </div>
+                isLoading
+                    ?
+                    <div className='quiz__loadingBox'>
+                        <h3 className='quiz__loadingText'>One moment please...</h3>
+                    </div>
+                    :
+                    <>
+                        <div className='quiz__header'>
+                            <h2 className='logo' onClick={props.startQuiz}>
+                                Quizzical
+                            </h2>
+                            <div className='settingsIconsQuiz'>
+                                <SettingsIcons 
+                                    startQuiz={props.startQuiz} 
+                                    theme={props.theme} 
+                                    switchTheme={props.switchTheme}
+                                    showHome={true}
+                                />
+                            </div>
+                        </div>
             
-            <div className='quiz__answers'>
-                {questionElements} 
-                {buttonElements}
-            </div>
-            </>
+                        <div className='quiz__answers'>
+                            {questionElements} 
+                            {buttonElements}
+                        </div>
+                    </>
             }
             <img className='yellowBlob' src={yellowBlob} alt='' />
             <img className='blueBlob' src={blueBlob} alt='' />
         </div>
-    )
+    );
 }

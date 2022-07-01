@@ -30,4 +30,4 @@ export const THEME = {
         '--icon-hover-color': 'var(--accent-color)',
     }
     
-}
+};

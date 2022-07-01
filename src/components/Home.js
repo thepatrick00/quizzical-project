@@ -1,12 +1,24 @@
-import React, {useState} from 'react'
-import blueBlob from '../images/blueBlobHome.png'
-import yellowBlob from '../images/yellowBlobHome.png'
-import { THEME } from '../constant.js'
-import SettingsIcons from './SettingsIcons.js'
-import Modal from './Modal'
+/* eslint-disable linebreak-style */
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+import blueBlob from '../images/blueBlobHome.png';
+import yellowBlob from '../images/yellowBlobHome.png';
+import { THEME } from '../constant.js';
+import SettingsIcons from './SettingsIcons.js';
+import Modal from './Modal';
+
+Home.propTypes = {
+    startQuiz: PropTypes.func,
+    formData: PropTypes.object,
+    handleFormChange: PropTypes.func,
+    theme: PropTypes.string,
+    switchTheme: PropTypes.func,
+    isHome: PropTypes.bool,
+};
 
 export default function Home(props) {
-    const {handleFormChange, formData} = props
+
+    const {handleFormChange, formData} = props;
 
     const customTheme = THEME[props.theme];
 
@@ -24,8 +36,8 @@ export default function Home(props) {
                     theme={props.theme} 
                     switchTheme={props.switchTheme}
                     showHome={false}
-                    sound={props.sound}
-                    toggleSound={props.toggleSound}
+                    // sound={props.sound}
+                    // toggleSound={props.toggleSound}
                 />
             </div>
             <h1 className='home__title'>Quizzical</h1>
@@ -99,5 +111,5 @@ export default function Home(props) {
             <img className='yellowBlob' src={yellowBlob} alt='' />
             <img className='blueBlob' src={blueBlob} alt='' />
         </div>
-    )
+    );
 }

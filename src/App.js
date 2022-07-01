@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import Quiz from './components/Quiz'
-import Home from './components/Home'
-import './styles.css'
+import React, {useState, useEffect} from 'react';
+import Quiz from './components/Quiz';
+import Home from './components/Home';
+import './styles.css';
 
 export default function App() {
     
@@ -20,11 +20,11 @@ export default function App() {
     // }
     
     function startQuiz() {
-        setIsHome(prev => !prev)
+        setIsHome(prev => !prev);
     }
 
     const switchTheme = React.useCallback(() => {
-        setTheme(prev => prev === 'light' ? 'dark' : 'light')
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
     }, [] );
 
     //passed this state up from the home.js so both Home.js & Quiz.js can use the state
@@ -43,30 +43,30 @@ export default function App() {
         setFormData(prev => {
             return {
                 ...prev, [name] : value
-            }
-        })
+            };
+        });
     }
 
     useEffect(() => {
-        localStorage.setItem('theme', theme)
-    }, [theme])
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     return (
         <div className='app'>
             {
                 isHome 
-                ?
-                <Home startQuiz={startQuiz} formData={formData} 
-                handleFormChange={handleFormChange} theme={theme}
-                switchTheme={switchTheme} isHome={isHome}
-                // sound={sound} toggleSound={() => setSound(!sound)}
-                />
-                :
-                <Quiz formData={formData} startQuiz={startQuiz} 
-                switchTheme={switchTheme} theme={theme}
-                // sound={sound} toggleSound={() => setSound(!sound)}
-                />
+                    ?
+                    <Home startQuiz={startQuiz} formData={formData} 
+                        handleFormChange={handleFormChange} theme={theme}
+                        switchTheme={switchTheme} isHome={isHome}
+                        // sound={sound} toggleSound={() => setSound(!sound)}
+                    />
+                    :
+                    <Quiz formData={formData} startQuiz={startQuiz} 
+                        switchTheme={switchTheme} theme={theme}
+                        // sound={sound} toggleSound={() => setSound(!sound)}
+                    />
             }
         </div>        
-    )
+    );
 }
