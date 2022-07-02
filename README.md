@@ -46,3 +46,9 @@ As of 5/13/22 the app works perfectly as a simple quiz app however I still have 
 Also, if you choose dark or light theme, your settings will be saved.
 
 - 6/18/22 - On mobile I added an improved results panel. Now if you want to play again, the page will scroll up to the top with all the answers on click. I also added an about Modal and some animations.
+
+- 7/1/22 - I refactored all the JS code using clean code principals I learned.
+    - I used a esLint to get consistent formatting.
+    - I made sure my components props had type checking using React's PropTypes.
+    - Destructured all props for better readability
+    - I renamed functions and variables so even my Mom would understand their purpose. For example, I used the standardized prefix, toggle, for ALL function that flip a boolean value.
