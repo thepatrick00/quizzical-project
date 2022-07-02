@@ -1,12 +1,12 @@
 /* eslint-disable linebreak-style */
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import Question from './Question';
+import {THEME} from '../constant.js';
 import { nanoid } from 'nanoid';
+import Question from './Question';
+import SettingsIcons from './SettingsIcons.js';
 import blueBlob from '../images/blueBlob.png';
 import yellowBlob from '../images/yellowBlob.png';
-import {THEME} from '../constant.js';
-import SettingsIcons from './SettingsIcons.js';
 
 Quiz.propTypes = {
     toggleIsHome: PropTypes.func,
@@ -15,15 +15,14 @@ Quiz.propTypes = {
     toggleTheme: PropTypes.func,
 };
 
-export default function Quiz(props) {
+export default function Quiz({ toggleIsHome, formData, theme, toggleTheme }) {
     const [quizData, setQuizData] = useState([]);
-    const [showAnswers, setShowAnswers] = useState(false);
+    const [isShowAnswers, setIsShowAnswers] = useState(false);
     const [resetQuiz, setResetQuiz] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
-    const {amountOfQuestions, answerType, category, difficulty} = props.formData;
 
-    /* Create initial data in my desired format */
-    
+    const {amountOfQuestions, answerType, category, difficulty} = formData;
+
     useEffect(() => {
         let apiLink = `https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${category}&difficulty=${difficulty}`;
         if(category === 'any') {
@@ -32,7 +31,6 @@ export default function Quiz(props) {
         fetch(apiLink)
             .then(res => res.json())
             .then(data => {
-                console.log('api response code', data);
                 setQuizData(() => {
                     return data.results.map(question => {
                         
@@ -63,21 +61,21 @@ export default function Quiz(props) {
             .finally(() => setIsLoading(false));
     }, [resetQuiz, amountOfQuestions, answerType, category, difficulty]);
 
-    /* Update State on Answer Click Section */
-    // qID = {question.id} passed in as a prop to Question component, each time I loop over with .map()
-    // aID is created in the Question component. It is an individual answer.id
+    // qId and aID match the correct answer and update held
+    // aID is made in Question.js with .map(_, _.id)
     function updateHeld(qID, aID) {
-        
-        setQuizData(prevData => {
-            return prevData.map( question => {        
+        setQuizData(prevQuizData => {
+            return prevQuizData.map( question => {
                 if(qID !== question.id ){
+
                     return question;
                 } else {
-                    const newAnswers = question.allAnswers.map(answer => (
-                        answer.id === aID 
+                    const newAnswers = question.allAnswers.map(answer => {
+
+                        return answer.id === aID 
                             ? {...answer, isHeld: !answer.isHeld}
-                            : {...answer, isHeld: false}  
-                    ));
+                            : {...answer, isHeld: false};
+                    });
                     
                     return {...question, allAnswers: newAnswers};
                 }
@@ -85,14 +83,13 @@ export default function Quiz(props) {
         });
     }
     
-    /* Check Quiz Answers section */
     function checkAnswers() {
-        setShowAnswers(true);
+        setIsShowAnswers(true);
     }
     
     let score = 0;
     
-    if(showAnswers){
+    if(isShowAnswers){
         quizData.map((question) => {
             return question.allAnswers.forEach(answer => {
                 return answer.isHeld && answer.isCorrect ? score++ : score;
@@ -100,20 +97,20 @@ export default function Quiz(props) {
         });
     }
     
-    /* Reset Quiz Section */
+    /* Snap scrolling on play again */
     const goToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: window.innerWidth > 600 ? 'auto' : 'smooth',
         });
     };
+
     function reset() {
-        setShowAnswers(false);
+        setIsShowAnswers(false);
         setResetQuiz(prev => prev + 1);
         goToTop();    
     }
-    
-    
+     
     const questionElements = quizData.map((question, index) => {
         return (
             <Question
@@ -123,23 +120,24 @@ export default function Quiz(props) {
                 updateHeld = {updateHeld}
                 questionIndex = {index}
                 qID = {question.id}
-                showAnswers = {showAnswers}
+                isShowAnswers = {isShowAnswers}
                 type = {question.type}
             />
         );
     });
 
-    let buttonElements = !showAnswers ? 
+    let buttonElements = !isShowAnswers 
+        ? 
         <div className='quiz__footer'>
             <button className='btn quiz__btn' onClick={checkAnswers}>Check Answers</button>
         </div>
         :
         <div className='quiz__footer quiz__footer--finished'>
-            <p className='quiz__finalText'>{`You scored ${score}/${props.formData.amountOfQuestions} answers`}</p>
+            <p className='quiz__finalText'>{`You scored ${score}/${formData.amountOfQuestions} answers`}</p>
             <button className='btn quiz__btn' onClick={reset}>Play Again</button>
         </div>;    
     
-    const customTheme = THEME[props.theme];
+    const customTheme = THEME[theme];
 
     return (
         <div className='quiz' style={customTheme}>
@@ -153,15 +151,14 @@ export default function Quiz(props) {
                     :
                     <>
                         <div className='quiz__header'>
-                            <h2 className='logo' onClick={props.toggleIsHome}>
+                            <h2 className='logo' onClick={toggleIsHome}>
                                 Quizzical
                             </h2>
                             <div className='settingsIconsQuiz'>
                                 <SettingsIcons 
-                                    toggleIsHome={props.toggleIsHome} 
-                                    theme={props.theme} 
-                                    toggleTheme={props.toggleTheme}
-                                    showHome={true}
+                                    toggleIsHome={toggleIsHome} 
+                                    theme={theme} 
+                                    toggleTheme={toggleTheme}
                                 />
                             </div>
                         </div>

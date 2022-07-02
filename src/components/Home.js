@@ -1,11 +1,12 @@
 /* eslint-disable linebreak-style */
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import blueBlob from '../images/blueBlobHome.png';
-import yellowBlob from '../images/yellowBlobHome.png';
 import { THEME } from '../constant.js';
 import SettingsIcons from './SettingsIcons.js';
 import Modal from './Modal';
+import About from './About';
+import blueBlob from '../images/blueBlobHome.png';
+import yellowBlob from '../images/yellowBlobHome.png';
 
 Home.propTypes = {
     toggleIsHome: PropTypes.func,
@@ -16,28 +17,25 @@ Home.propTypes = {
     isHome: PropTypes.bool,
 };
 
-export default function Home(props) {
-
-    const {handleFormChange, formData} = props;
-
-    const customTheme = THEME[props.theme];
-
+export default function Home({ toggleIsHome, formData, handleFormChange, theme, toggleTheme }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const customTheme = THEME[theme];
+
     const toggleModal = () => {
         setIsModalOpen(p => !p);
     };
     
     return (
         <div className="home" style={customTheme} >
-            <Modal isOpen={isModalOpen} toggle={toggleModal}/>
+            <Modal isOpen={isModalOpen} toggle={toggleModal}>
+                <About />
+            </Modal>
             <div className='settingsIconsHome'>
                 <SettingsIcons 
-                    toggleIsHome={props.toggleIsHome} 
-                    theme={props.theme} 
-                    toggleTheme={props.toggleTheme}
-                    showHome={false}
-                    // sound={props.sound}
-                    // toggleSound={props.toggleSound}
+                    toggleIsHome={toggleIsHome} 
+                    theme={theme} 
+                    toggleTheme={toggleTheme}
+                    showHomeIcon={false}
                 />
             </div>
             <h1 className='home__title'>Quizzical</h1>
@@ -104,7 +102,7 @@ export default function Home(props) {
                 </select>
             </form>
             <div className='home__btnCtr' style={{width: 'min(235px, 90%)'}}>
-                <button onClick={props.toggleIsHome}  className='btn home__startBtn'>Play</button>
+                <button onClick={toggleIsHome}  className='btn home__startBtn'>Play</button>
                 <button onClick={toggleModal} className='btn home__aboutBtn'>About</button>
             </div>
             

@@ -8,20 +8,17 @@ SettingsIcons.propTypes = {
     toggleIsHome: PropTypes.func,
     theme: PropTypes.string,
     toggleTheme: PropTypes.func,
-    showHome: PropTypes.bool,
-    // sound: PropTypes.bool,
-    // toggleSound: PropTypes.func
+    showHomeIcon: PropTypes.bool,
 };
 
-function SettingsIcons({toggleIsHome, theme, toggleTheme, showHome=true}) {
-    let showObj;
-    showHome ? showObj = {display: 'inline'} : showObj = {display: 'none'};
-
+function SettingsIcons({toggleIsHome, theme, toggleTheme, showHomeIcon=true}) {
+    let homeIconStyleObj;
+    showHomeIcon ? homeIconStyleObj = {display: 'inline'} : homeIconStyleObj = {display: 'none'};
 
     return (
         <>
             <HomeIcon className='icon homeIcon' onClick={toggleIsHome}
-                size={30} style={showObj}
+                size={30} style={homeIconStyleObj}
             />
 
             {theme === 'light'
@@ -30,13 +27,6 @@ function SettingsIcons({toggleIsHome, theme, toggleTheme, showHome=true}) {
                 :
                 <MoonIcon className='icon moonIcon' size={30} onClick={toggleTheme}/>
             }
-            
-            {/* {sound === true
-            ?
-            <SoundIcon className='icon soundIcon' size={30} onClick={toggleSound}/>
-            :
-            <SoundOffIcon className='icon soundIcon' size={30} onClick={toggleSound}/>
-            } */}
         </>
     );
 }
