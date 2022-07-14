@@ -112,16 +112,17 @@ export default function Quiz({ toggleIsHome, formData, theme, toggleTheme }) {
     }
      
     const questionElements = quizData.map((question, index) => {
+        
         return (
             <Question
                 key = {nanoid()}
                 question = {question.question}
                 allAnswers = {question.allAnswers}
+                qID = {question.id}
+                type = {question.type}
                 updateHeld = {updateHeld}
                 questionIndex = {index}
-                qID = {question.id}
                 isShowAnswers = {isShowAnswers}
-                type = {question.type}
             />
         );
     });

@@ -43,6 +43,7 @@ export default function Question({ allAnswers, qID, question, isShowAnswers, upd
                 onClick={() => updateHeld(qID, answer.id)}
                 className = 'btn question__btn'
                 style = {styles}
+                data-testid = {`button${index}`}
             >
                 {he.decode(allAnswers[index].value)}
             </button>
